@@ -186,12 +186,14 @@ packages:
       - CoreyButler.NVMforWindows
       - GNU.Wget2
       - Git.Git
+      - Google.Protobuf
       - Helix.Helix
       - JesseDuffield.Lazydocker
       - JesseDuffield.lazygit
       - LLVM.llvm
       - Microsoft.DotNet.Runtime.8
       - Microsoft.DotNet.SDK.8
+      - Microsoft.Powershell
       - MikeFarah.yq
       - Python.Python.3.11
       - Rclone.Rclone

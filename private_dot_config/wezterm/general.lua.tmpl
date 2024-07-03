@@ -8,6 +8,8 @@ return {
 	default_prog = { "/opt/homebrew/bin/fish", "-l" },
   {{- else if eq .chezmoi.os "linux" }}
 	default_prog = { "/usr/bin/fish", "-l" },
+  {{- else if eq .chezmoi.os "windows" }}
+	default_prog = { 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' },
   {{- end }}
 	enable_wayland = false,
 	font = wezterm.font_with_fallback({
