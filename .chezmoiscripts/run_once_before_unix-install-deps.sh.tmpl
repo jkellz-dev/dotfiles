@@ -1,5 +1,5 @@
-# vim: filetype=sh.chezmoitmpl
 {{ if eq .chezmoi.os "linux" -}}
+# vim: filetype=sh.chezmoitmpl
 {{ template "linux/install-deps.sh.tmpl" . -}}
 {{ else if eq .chezmoi.os "darwin" -}}
 {{ template "darwin/install-deps.sh.tmpl" . -}}
