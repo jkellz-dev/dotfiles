@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.os "windows" -}}
-# vim: filetype=ps1
+# vim: ft=ps1.chezmoitmpl
 
 {{ range .packages.windows.winget -}}
 winget install --ID {{ . | quote }}
