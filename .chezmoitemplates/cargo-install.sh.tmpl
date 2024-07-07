@@ -1,0 +1,5 @@
+# vim: filetype=sh
+# Install Cargo Packages
+echo "CARGO: {{ list .packages.cargo.standard | join " " | trimAll "[]" }}"
+cargo install {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
+cargo install --locked {{ list .packages.cargo.locked | join " " | trimAll "[]" }}

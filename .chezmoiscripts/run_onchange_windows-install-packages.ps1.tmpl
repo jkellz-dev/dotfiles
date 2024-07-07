@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "windows" -}}
+# vim: filetype=ps1
+
+{{ range .packages.windows.winget -}}
+winget install --ID {{ . | quote }}
+{{ end -}}
+
+{{- template "cargo-install.sh.tmpl" . }}
+
+{{- template "golang-install.sh.tmpl" . }}
+
+{{- template "pipx-install.sh.tmpl" . }}
+
+{{ end -}}
+

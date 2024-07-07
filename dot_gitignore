@@ -1,0 +1,6 @@
+# vim: filetype=gitignore
+*.orig
+*.bak
+.DS_Store
+.vscode
+.idea

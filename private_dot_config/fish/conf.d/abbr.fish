@@ -1,0 +1,24 @@
+abbr -a -- ... 'cd ../../'
+abbr -a -- .... 'cd ../../../'
+abbr -a -- b bat
+abbr -a -- c cat
+abbr -a -- cm chezmoi
+abbr -a -- cp 'cp -i'
+abbr -a -- docker podman
+abbr -a -- h history
+abbr -a -- kc kubectl
+abbr -a -- lg lazygit
+abbr -a -- lzd lazydocker
+abbr -a -- mk microk8s
+abbr -a -- mkdir 'mkdir -p'
+abbr -a -- mp multipass
+abbr -a -- mv 'mv -i'
+abbr -a -- pc podman-compose
+abbr -a -- pm podman
+abbr -a -- rm 'rm -i'
+abbr -a -- tf terraform
+abbr -a -- tp telepresence
+abbr -a -- vim nvim
+abbr -a -- which 'type -a'
+abbr -a --position anywhere --function last_history_item -- !!
+abbr -a --position anywhere --set-cursor='%' -- L '% | less'

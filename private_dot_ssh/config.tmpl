@@ -1,0 +1,14 @@
+# vim: filetype=sshconfig
+{{ if ne .chezmoi.os "windows" -}}
+Host *
+    IdentityAgent "~/.1password/agent.sock"
+{{- end }}
+
+Host bitbucket-pjc
+    HostName bitbucket.org
+    IdentityFile ~/.ssh/bitbucket_personal_id_rsa.pub
+    User git
+
+Host rb
+    HostName 192.168.4.100
+    IdentityFile ~/.ssh/rusty_slowboat_rsa.pub

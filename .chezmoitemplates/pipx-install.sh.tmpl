@@ -1,0 +1,12 @@
+# vim: filetype=sh.chezmoitmpl
+# Install pipx Packages
+
+echo "PIPX: {{ list .packages.pipx | join " " | trimAll "[]" }}"
+{{ range .packages.pipx -}}
+echo "PIPX INSTALL: {{ . }}"
+pipx install {{ . }}
+{{ end -}}
+
+echo "PIPX: upgrading packages"
+pipx upgrade-all
+

@@ -1,0 +1,24 @@
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+[".config/fortunes"]
+    type = "git-repo"
+    url = "https://github.com/JKirchartz/fortunes.git"
+    refreshPeriod = "168h"
+[".config/wezterm/wez-status-generator"]
+    type = "git-repo"
+    url = "https://github.com/sei40kr/wez-status-generator.git"
+    refreshPeriod = "168h"
+[".config/wezterm/smart_workspace_switcher"]
+    type = "git-repo"
+    url = "https://github.com/MLFlexer/smart_workspace_switcher.wezterm.git"
+    refreshPeriod = "168h"
+[".config/wezterm/presentation"]
+    type = "git-repo"
+    url = "https://github.com/jkellz_dev/presentation.wez.git"
+    refreshPeriod = "168h"
+[".config/yazi/plugins/ouch.yazi"]
+    type = "git-repo"
+    url = "https://github.com/ndtoan96/ouch.yazi.git"
+    refreshPeriod = "168h"

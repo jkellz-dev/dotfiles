@@ -1,0 +1,37 @@
+# vim: ft=yaml.chezmoitmpl
+colors:
+  body: none
+  date: black
+  tags: yellow
+  title: cyan
+default_hour: 9
+default_minute: 0
+editor: nvim is /usr/local/bin/nvim
+encrypt: false
+highlight: true
+indent_character: "|"
+journals:
+  default:
+    {{ if eq .chezmoi.hostname "rowdy-sasquatch" -}}
+    journal: /home/jonathan/notes/journal.txt
+    {{ else if eq .chezmoi.hostname "Rusty-Slowboat" -}}
+    journal: /Users/jonathan/notes/journals/journal.txt
+    {{ else -}}
+    journal: /home/jonathan/notes/journals/journal.txt
+    {{ end -}}
+    display_format: markdown
+  work:
+    {{ if eq .chezmoi.hostname "rowdy-sasquatch" -}}
+    journal: /home/jonathan/notes/work_journal.txt
+    {{ else if eq .chezmoi.hostname "Rusty-Slowboat" -}}
+    journal: /Users/jonathan/notes/journals/work_journal.txt
+    {{ else -}}
+    journal: /home/jonathan/notes/journals/work_journal.txt
+    {{ end -}}
+    display_format: json
+    editor: nvim
+linewrap: 79
+tagsymbols: "#@"
+template: false
+timeformat: "%F %r"
+version: v4.1

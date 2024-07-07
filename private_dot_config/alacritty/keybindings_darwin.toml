@@ -1,0 +1,25 @@
+bindings = [
+  # TMUX bindings
+  { key = "D", mods = "Command", chars = "\u0001\\" }, # split tmux window vertically
+  { key = "D", mods = "Command|Shift", chars = "\u0001|" }, # split tmux window horizontally
+  { key = "T", mods = "Command", chars = "\u0001c" }, # create a new tmux window
+  { key = "W", mods = "Command", chars = "\u0001x" }, # kill the current pane
+  { key = "Z", mods = "Command", chars = "\u0001z" }, # toggle zoom state of the current tmux pane
+  { key = "Tab", mods = "Control", chars = "\u0001n" }, # switch to next tmux window
+  { key = "`", mods = "Control", chars = "\u0001p" }, # switch to previous tmux window
+  { key = "Comma", mods = "Command", chars = "\u0001," }, # rename the current tmux window
+  { key = "Semicolon", mods = "Command", chars = "\u0001:" }, # enter the tmux command prompt
+  { key = "Key1", mods =  "Command", chars = "\u00011" }, # select tmux window 1
+  { key = "Key2", mods =  "Command", chars = "\u00012" }, # select tmux window 2
+  { key = "Key3", mods =  "Command", chars = "\u00013" }, # select tmux window 3
+  { key = "Key4", mods =  "Command", chars = "\u00014" }, # select tmux window 4
+  { key = "Key5", mods =  "Command", chars = "\u00015" }, # select tmux window 5
+  { key = "Key6", mods =  "Command", chars = "\u00016" }, # select tmux window 6
+  { key = "Key7", mods =  "Command", chars = "\u00017" }, # select tmux window 7
+  { key = "Key8", mods =  "Command", chars = "\u00018" }, # select tmux window 8
+  { key = "Key9", mods =  "Command", chars = "\u00019" }, # select tmux window 9
+  { key = "L", mods = "Command|Shift", chars = "\u0001l" }, # switch to the right tmux pane
+  { key = "H", mods = "Command|Shift", chars = "\u0001h" }, # switch to the left tmux pane
+  { key = "k", mods = "Command|Shift", chars = "\u0001k" }, # switch to the lower tmux pane
+  { key = "J", mods = "Command|Shift", chars = "\u0001j" }, # switch to the upper tmux pane
+]

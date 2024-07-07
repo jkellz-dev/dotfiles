@@ -1,0 +1,92 @@
+; vim: filetype=gitconfig.gotexttmpl
+; [url "git@gitlab.com:"]
+;     insteadOf = https://gitlab.com/
+[user]
+  email = jonathan@jkellz.dev
+  name = Jonathan Kellenberg
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJr6bdGTROIDmIfkQIVWSj1nPf3nv8eEy6/1r1PwGuOm
+[alias]
+  ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --numstat --show-signature
+  difflast = diff HEAD^ HEAD
+  undo = reset --soft HEAD~1
+  unstage = reset --
+[core]
+  editor = nvim
+  pager = delta
+  excludesFile = ~/.gitignore
+  {{- if eq .chezmoi.os "windows" }}
+  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+  autocrlf = true
+  {{- else if eq .chezmoi.os "linux" }}
+  {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  sshCommand = ssh.exe
+  {{-   end }}
+  {{- end }}
+[interactive]
+  difffilter = delta --color-only
+[add.interactive]
+  useBuiltin = false # required for git 2.37.0
+[push]
+  default = "tracking"
+[pull]
+  rebase = false
+[init]
+  defaultBranch = main
+[delta]
+  navigate = true
+  light = false
+  line-numbers = true
+  side-by-side = true
+[diff]
+  tool = nvimdiff
+  colorMoved = default
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
+[difftool]
+  prompt = false
+[merge]
+  tool = nvimdiff
+[mergetool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[mergetool "meld"]
+  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[mergetool]
+  prompt = false
+  keepBackup = false
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  {{- if eq .chezmoi.os "darwin" }}
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = /Users/jonathan/.ssh/allowed_signers
+  {{- else if eq .chezmoi.os "linux" }}
+  {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  program = "/mnt/c/Users/jonathan/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
+  {{- else }}
+  program = "/opt/1Password/op-ssh-sign"
+  {{- end }}
+  allowedSignersFile = /home/jonathan/.ssh/allowed_signers
+  {{- else if eq .chezmoi.os "windows" }}
+  program = C:\\Users\\jonathan\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe
+  allowedSignersFile = /Users/jonathan/.ssh/allowed_signers
+  {{- end }}
+
+[commit]
+  gpgsign = true
+
+; re-add when there is a new job
+; [includeIf "gitdir:~/projects/"]
+;     path = ~/projects/.gitconfig
+
+; [includeIf "gitdir:~/projects/jello_salad/"]
+;     path = ~/projects/jello_salad/.gitconfig
+

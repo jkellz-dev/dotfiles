@@ -1,0 +1,363 @@
+# Path to your oh-my-zsh installation.
+#
+export ZSH=/Users/jonathan/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+# ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Color listing
+# eval $(gdircolors $HOME/.dircolors)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# LS_COLORS=…
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# if whence dircolors >/dev/null; then
+#   export LS_COLORS
+#   alias ls='ls --color'
+# else
+#   export CLICOLOR=1
+#   LSCOLORS=…
+# fi
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    aws
+    docker
+    fzf
+    git
+    gitignore
+    golang
+    jfrog
+    kubectl
+    node 
+    nomad
+    npm
+    postgres
+    rust
+    terraform
+    terragrunt
+    thefuck
+    vi-mode
+    zsh-autosuggestions
+    zsh-nvm
+    zsh-syntax-highlighting
+)
+
+# User configuration
+
+export GOPATH=$HOME/go
+# export GOPRIVATE=gitlab.com/wotc/*
+export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/mongodb/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+# export PATH="/usr/local/opt/sqlite/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(brew --prefix llvm)/bin:${PATH}"
+
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# NVM
+export NVM_AUTO_USE=true
+
+# dotnet .net core
+# export ASPNETCORE_ENVIRONMENT=Development
+
+# export RPS1="%{$reset_color%}"
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+alias vi=vim
+alias vim=nvim
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# completions
+fpath=(~/.completions $fpath)
+
+# Git
+export GIT_EDITOR=vim
+
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/local/bin/terraform terraform
+
+# uuidgen
+
+alias guid="uuidgen | tr -d - | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"
+
+# urlencode
+
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
+# simple server
+alias servethis='python3 -m http.server 8001'
+
+# tree
+
+alias tree='tree -C'
+
+
+# The Fuck
+# eval $(thefuck --alias)
+
+# terraform
+
+# alias tf='terraform'
+
+# kubectl
+
+# alias kprod='kubectl config use-context prod.platform.tiamat.cloud'
+# alias kdev='kubectl config use-context dev.platform.tiamat.cloud'
+# alias kproxy='kubectl proxy'
+
+# gitignore
+# function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
+# generate files
+# function genfiles() {
+#     counter=1; 
+#     number_of_files=1
+#     if [ -n "$1" ]
+#     then
+#         let "number_of_files = $1";
+#     else
+#         let "number_of_files = 1";
+#     fi
+
+#     batch=""
+#     if [ -n "$2" ]
+#     then
+#         batch=$2;
+#     else
+#         batch=$RANDOM;
+#     fi
+
+#     # echo "$batch"
+
+#     blockCount=""
+#     if [ -n "$3" ]
+#     then
+#         blockCount=$3;
+#     else
+#         blockCount=$RANDOM
+#         let "blockCount %= 1024"
+#     fi
+
+#     blockSize=""
+#     if [ -n "$4" ]
+#     then
+#         blockSize=$4;
+#     else
+#         blockSize=1;
+#     fi
+
+#     echo "Creating $number_of_files Files"
+
+#     while [[ $counter -le $number_of_files ]]; 
+#     do echo Creating file random-file.$batch.$counter;
+#         # bc=$RANDOM
+#         # let "bc %= 1024"
+#         dd bs=$blockSize count=$blockCount skip=$RANDOM if=/dev/urandom of=random-file.$batch.$counter;
+#             let "counter += 1";
+#         done
+# }
+
+# # telepresence
+# function tp() {
+#     if [ -n "$1" ]
+#     then
+#         telepresence --namespace "$1" --context "$1.platform.tiamat.cloud" --deployment telepresence-$USER  --also-proxy 172.20.0.0/16
+#     else
+#         echo "You must provide an environment"
+#     fi
+# }
+
+# troubleshooting helpers
+
+alias flushdns='sudo killall -HUP mDNSResponder'
+
+# function bounce() {
+#     if [ -n "$1" ]; then
+#         if [ "$1" = "jaeger" ]; then
+#             kubectl config use-context prod.platform.tiamat.cloud && \
+#             kubectl -n istio-system delete pod -l component=query
+#         else
+#             echo "I do not recognize command"
+#         fi
+#     else
+#         echo "You must provide a command"
+#     fi
+# }
+
+# gets a JWT and sets the env var $JWT
+# function auth() {
+#     read -s '?Password: ' passvar
+
+#     . ~/.wizards
+
+#     creds=$(echo -n $clientID:$clientSecret | base64)
+
+#     resp=$(http --ignore-stdin --form --follow --timeout 3600 POST https://api.platform.wizards.com/auth/oauth/token \
+#         'grant_type'='password' \
+#         'username'="$uservar" \
+#         'password'="$passvar" \
+#         Content-Type:'application/x-www-form-urlencoded' \
+#         Authorization:"Basic $creds")
+
+#     echo "\n"
+
+#     export $JWT=$(echo -n $resp | jq --raw-output .access_token)
+# }
+
+# DEVELOPMENT
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+alias ip='dig @resolver1.opendns.com ANY myip.opendns.com +short'
+
+alias updatedb='/usr/libexec/locate.updatedb'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+# VI CMD Mode
+bindkey "jj" vi-cmd-mode
+
+# Gulp
+
+eval "$(gulp --completion=zsh)"
+
+# Docker
+
+# alias docker="nerdctl"
+# alias nerdctl="lima nerdctl"
+
+# scylla
+
+export SCYLLA_CORES=2
+alias cqlsh="docker exec -it scylla cqlsh"
+alias nodetool="docker exec -it scylla nodetool"
+
+# Rust
+
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
+# S6 Stuff
+
+alias jwt='. ~/scratch/accounts/./login.sh'
+
+# Starship
+# export SPACESHIP_KUBECTL_SHOW=true
+# export SPACESHIP_KUBECONTEXT_SHOW=true
+# export STARSHIP_CONFIG=~/.config/starship.toml
+#
+# eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# export JAVA_HOME=`jenv javahome`
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# SCCACHE
+
+export SCCACHE_REDIS=redis://127.0.0.1:6379
+
+
+# CMAKE + OPENSSL
+
+export DEP_OPENSSL_ROOT=/opt/homebrew/Cellar/openssl@3/3.0.5
+
+# COMPLETIONS
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+autoload -U compinit && compinit

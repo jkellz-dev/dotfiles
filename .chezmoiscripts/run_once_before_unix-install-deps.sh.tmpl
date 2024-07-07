@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "linux" -}}
+{{ template "linux/install-deps.sh.tmpl" . -}}
+{{ else if eq .chezmoi.os "darwin" -}}
+{{ template "darwin/install-deps.sh.tmpl" . -}}
+{{ end -}}

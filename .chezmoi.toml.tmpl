@@ -1,0 +1,38 @@
+# vim: filetype=toml.gotexttmpl
+{{ $email := promptString "email" -}}
+
+umask = 0o022
+
+encryption = "age"
+[age]
+command = "rage"
+
+[diff]
+exclude = ["scripts"]
+pager = "delta"
+
+[merge]
+command = "nvim"
+args = [
+  "-d",
+  "{{ "{{" }} .Destination {{ "}}" }}",
+  "{{ "{{" }} .Source {{ "}}" }}"
+  # "{{ "{{" }} .Target {{ "}}" }}"
+]
+
+[data]
+email = {{ $email | quote }}
+go_version = "1.22.3"
+
+{{- if eq .chezmoi.os "windows" }}
+[interpreters.ps1]
+command = "pwsh"
+args = ["-NoLogo"]
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+[[textconv]]
+pattern = "**/*.plist"
+command = "plutil"
+args = ["-convert", "xml1", "-o", "-", "-"]
+{{- end }}

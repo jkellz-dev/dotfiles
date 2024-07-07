@@ -1,0 +1,76 @@
+-- vim: ft=lua.chezmoitmpl
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
+
+require("status_bar")
+
+{{- $chassisType := "desktop" }}
+{{- if (eq .chezmoi.os "darwin") }}
+{{-   if contains "MacBook" (output "sysctl" "-n" "hw.model") }}
+{{-     $chassisType = "laptop" }}
+{{-   else }}
+{{-     $chassisType = "desktop" }}
+{{-   end }}
+{{- else if (eq .chezmoi.os "linux") }}
+{{-   $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
+{{- else if (eq .chezmoi.os "windows") }}
+{{-   $chassisType = (output "powershell.exe" "-noprofile" "-command" "if (Get-WmiObject -Class win32_battery -ComputerName localhost) { echo laptop } else { echo desktop }") }}
+{{- end }}
+
+local machine_config = require("utils.machine_config")
+
+if machine_config.chassis_type == "laptop" then
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function()
+	local tab, pane, window = mux.spawn_window({})
+	window:gui_window():maximize()
+end)
+end
+
+-- initialize configuration
+local Config = require("config")
+
+-- load config from local modules
+local data = Config:init()
+	:merge(require("keybindings"))
+	:merge(require("mouse"))
+	:merge(require("status_bar"))
+	:merge(require("mux"))
+	:merge(require("launcher"))
+	:merge(require("general")).options
+
+-- initialize workspace switcher plugin
+local workspace_switcher = require("smart_workspace_switcher.plugin")
+
+workspace_switcher.apply_to_config(data)
+
+wezterm.on("smart_workspace_switcher.workspace_chosen", function(window, path)
+	local base_path = string.gsub(path, "(.*[/\\])(.*)", "%2")
+	window:set_right_status(wezterm.format({
+		{ Foreground = { Color = "red" } },
+		{ Text = base_path .. "  " },
+	}))
+end)
+
+workspace_switcher.set_workspace_formatter(function(label)
+	return wezterm.format({
+		{ Attribute = { Italic = true } },
+		{ Foreground = { Color = "green" } },
+		{ Background = { Color = "black" } },
+		{ Text = "󱂬: " .. label },
+	})
+end)
+
+require("presentation.plugin").apply_to_config(data, {
+    font_size_multiplier = 1.8, -- sets for both "presentation" and "presentation_full"
+    presentation = {
+        enabled = true,
+        maximize = false,
+        keybind = { key = "P", mods = "CTRL|ALT|SHIFT" } -- setting a keybind
+    },
+    presentation_full = {
+        enabled = false,
+    }
+})
+return data

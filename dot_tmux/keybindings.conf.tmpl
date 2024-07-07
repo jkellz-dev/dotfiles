@@ -1,0 +1,106 @@
+# vim: filetype=tmux.chezmoitmpl
+
+# split panes using | and -
+bind \\ split-window -h
+bind | split-window -v
+unbind '"'
+unbind '%'
+
+# kill panes without confirmation
+bind-key x kill-pane
+
+# Movement keys
+unbind "l"
+bind l select-pane -L
+bind h select-pane -R
+bind k select-pane -U
+bind j select-pane -D
+
+# switch panes using Alt-vim bindings without prefix
+bind -n M-l select-pane -L
+bind -n M-h select-pane -R
+bind -n M-k select-pane -U
+bind -n M-j select-pane -D
+
+# switch windows using Alt-num bindings without prefix
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t 9
+
+bind -n M-w killp
+
+bind -n M-d split-window -h # create vertical split
+bind -n M-D split-window -v # create horizontal split
+bind -n M-t new-window # create new window
+
+bind -n M-Left previous-window # go to the left window
+bind -n M-Right next-window # go to the right window
+
+bind -n M-\; command-prompt # open the tmux command prompt
+bind -n M-, command-prompt -I "#W" "rename-window '%%'" # rename the window
+
+# resizing panes
+bind -n M-z resize-pane -Z # zoom pane
+bind -n S-M-Up resize-pane -U 5
+bind -n S-M-Down resize-pane -D 5
+bind -n S-M-Left resize-pane -L 5
+bind -n S-M-Right resize-pane -R 5
+
+bind -n M-K resize-pane -U 5
+bind -n M-J resize-pane -D 5
+bind -n M-H resize-pane -L 5
+bind -n M-L resize-pane -R 5
+
+# go to last window
+bind-key C-t last-window
+
+# Layouts
+# use this command to get the window layout: tmux display-message -p '#{window_layout}'
+# main dev layout
+bind -n M-a select-layout 'add8,264x79,0,0{191x79,0,0,53,72x79,192,0[72x14,192,0,66,72x14,192,15,88,72x9,192,30,89,72x14,192,40,85,72x14,192,55,86,72x9,192,70,87]}'
+
+# popups
+bind -n M-g display-popup -E -h 85% -w 85% 'lazygit'
+{{ if eq .chezmoi.hostname "Rusty-Slowboat" -}}
+bind -n M-p display-popup -E -h 85% -w 85% 'DOCKER_HOST=unix:///var/folders/1_/1j5672qd5z39qdcysk398r240000gn/T/podman/podman-machine-default-api.sock lazydocker'
+{{ else if eq .chezmoi.os "linux" -}}
+bind -n M-p display-popup -E -h 85% -w 85% 'DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock lazydocker'
+{{ else -}}
+bind -n M-p display-popup -E -h 85% -w 85% 'podman-tui'
+{{ end -}}
+bind -n M-b display-popup -E -h 85% -w 85% 'btm'
+{{ if eq .chezmoi.hostname "rowdy-sasquatch" -}}
+bind -n M-m display-popup -E -h 85% -w 85% 'termusic'
+{{ end -}}
+bind -n M-T display-popup -E 'tmux new-session -A -s scratch'
+bind -n M-J display-popup -E 'jrnl --config-override editor ""'
+
+# session management
+bind -n M-r command-prompt -I "#S" "rename-session '%%'" # rename the session
+
+bind -n M-s run-shell "sesh connect \"$(
+	sesh list -i | fzf-tmux -p 55%,60% --layout=reverse --ansi \
+		--no-sort --border-label ' sesh ' --prompt '⚡  ' \
+		--header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+		--bind 'tab:down,btab:up' \
+		--bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list -i)' \
+		--bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t -i)' \
+		--bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c -i)' \
+		--bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z -i)' \
+		--bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+    {{ if eq .chezmoi.os "linux" -}}
+    --bind 'ctrl-d:execute(tmux kill-session -t $(echo {} | cut -c5-))+change-prompt(⚡  )+reload(sesh list -i)'
+    {{ else -}}
+    --bind 'ctrl-d:execute(tmux kill-session -t $(echo {} | cut -c3-))+change-prompt(⚡  )+reload(sesh list -i)'
+    {{ end -}}
+)\""
+
+# reload config file (change file location to your the tmux.conf you want to use)
+bind r source-file ~/.tmux.conf
+

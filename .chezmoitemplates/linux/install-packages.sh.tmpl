@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+# vim: filetype=sh.chezmoitmpl
+
+{{ range .packages.linux.ppas -}}
+sudo add-apt-repository -y {{ . }}
+{{ end -}}
+
+# Install Apt Packages
+sudo apt update
+
+echo "APT: {{ list .packages.linux.apt | join " " | trimAll "[]" }}"
+sudo apt install -y {{ list .packages.linux.apt | join " " | trimAll "[]" }}
+
+# Install Snaps
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{ range .packages.linux.snaps -}}
+ echo "SNAP {{ . }}"
+ sudo snap install {{ . }}
+{{ end -}}
+{{ end -}}
+
+{{- template "cargo-install.sh.tmpl" . }}
+
+{{- template "golang-install.sh.tmpl" . }}
+
+{{- template "pipx-install.sh.tmpl" . }}
+
+# install neonctl
+curl -sL https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-linux-x64 -o neonctl
+
+sudo mv neonctl /usr/local/bin/neonctl

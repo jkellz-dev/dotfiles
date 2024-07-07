@@ -1,0 +1,21 @@
+README.md
+iterm_profiles.json
+keychron_s1.json
+{{ if ne .chezmoi.os "darwin" }}
+.config/fish/fish_variables_darwin
+.config/alacritty/keybindings_darwin.toml
+.tmux/keybindings_darwin.conf
+Application Support/**
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/fish/fish_variables_linux
+.config/alacritty/keybindings_linux.toml
+.tmux/keybindings_linux.conf
+{{ end }}
+{{ if (and (ne .chezmoi.os "darwin") (ne .chezmoi.os "linux")) }}
+.config/alacritty/alacritty.toml
+{{ end }}
+{{ if ne .chezmoi.os "windows" }}
+AppData/**
+Documents/**
+{{ end }}

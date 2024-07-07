@@ -1,0 +1,53 @@
+-- vim: ft=lua.chezmoitmpl
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
+
+return {
+	color_scheme = "flexoki-dark",
+  {{- if eq .chezmoi.os "darwin" }}
+	default_prog = { "/opt/homebrew/bin/fish", "-l" },
+  {{- else if eq .chezmoi.os "linux" }}
+	default_prog = { "/usr/bin/fish", "-l" },
+  {{- end }}
+	enable_wayland = false,
+	font = wezterm.font_with_fallback({
+    {
+      family = "SauceCodePro Nerd Font Mono",
+      weight = "Medium",
+    },
+		"JetBrains Mono",
+	}),
+  {{- if eq .chezmoi.os "darwin" }}
+	font_size = 14,
+  {{- else }}
+	font_size = 11,
+  {{- end }}
+  bold_brightens_ansi_colors = "BrightAndBold",
+	inactive_pane_hsb = { saturation = 0.9, brightness = 0.8 },
+	window_decorations = "RESIZE",
+	automatically_reload_config = true,
+	exit_behavior = "CloseOnCleanExit",
+	exit_behavior_messaging = "Verbose",
+	window_background_opacity = 0.85,
+  macos_window_background_blur = 20,
+	window_padding = {
+		left = "1cell",
+		right = "1cell",
+		top = 0,
+		bottom = 0,
+	},
+	warn_about_missing_glyphs = false,
+	hide_mouse_cursor_when_typing = true,
+  visual_bell = {
+    fade_in_duration_ms = 75,
+    fade_out_duration_ms = 75,
+    target = 'CursorColor',
+  },
+  {{- if eq .chezmoi.hostname "Rusty-Slowboat" }}
+	initial_cols = 240,
+	initial_rows = 80,
+  {{- else }}
+	initial_cols = 80,
+	initial_rows = 50,
+  {{- end }}
+}

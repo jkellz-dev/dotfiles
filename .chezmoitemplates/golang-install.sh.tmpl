@@ -1,0 +1,6 @@
+# vim: filetype=sh.chezmoitmpl
+# Install Go Packages
+{{ range .packages.golang -}}
+echo "GO INSTALL: {{ . }}"
+go install {{ . }}
+{{ end -}}

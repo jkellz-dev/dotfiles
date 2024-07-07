@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "windows" -}}
+# vim: filetype=ps1
+
+echo "WINDOWS: Installing Deps"
+echo "WINDOWS: Installing Rustup"
+winget install --ID Rustlang.Rustup
+echo "WINDOWS: Installing Golang"
+winget install --ID GoLang.Go
+
+# end
+echo "Finished Installing Dependencies..."
+{{ end -}}

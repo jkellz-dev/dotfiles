@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# vim: filetype=sh.chezmoitmpl
+
+# Install Brew Packages
+brew update
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+
+
+{{ template "cargo-install.sh.tmpl" . }}
+
+{{ template "golang-install.sh.tmpl" . }}
+
+{{ template "pipx-install.sh.tmpl" . }}

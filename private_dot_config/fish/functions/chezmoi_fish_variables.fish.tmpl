@@ -1,0 +1,8 @@
+# vim: filetype=fish
+function chezmoi_fish_variables --description "copies the contents of `fish_variables` to the appropriate managed file"
+  {{- if eq .chezmoi.os "darwin" }}
+  cat ~/.config/fish/fish_variables ~/.local/share/chezmoi/private_dot_config/fish/fish_variables_darwin
+  {{- else if eq .chezmoi.os "linux" }}
+  cat ~/.config/fish/fish_variables ~/.local/share/chezmoi/private_dot_config/fish/fish_variables_linux
+  {{- end }}
+end

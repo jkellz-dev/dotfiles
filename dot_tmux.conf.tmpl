@@ -1,0 +1,77 @@
+# vim: filetype=tmux.gotexttmpl
+
+# Deal with tmux True Color
+set -g default-terminal "alacritty"
+
+# Apply Tc
+set-option -ga terminal-overrides ",alacritty:Tc"
+
+# remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# do not rename windows automatically
+set-window-option -g allow-rename off
+# set-option -s status-interval 1
+
+# Set index to 1 instead of 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+# keybindings
+source-file ~/.tmux/keybindings.conf
+
+# Mouse settings
+set -g mouse on
+
+# layouts
+bind D source-file ~/.tmux/tmux_dev.conf
+
+# history
+set -g history-limit 10000
+
+# set default editor
+set -g status-keys vi
+
+# Plugins
+set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'yardnsm/tmux-1password'
+set -g @plugin 'ofirgall/tmux-window-name'
+{{ if eq .chezmoi.hostname "rowdy-sasquatch" -}}
+set -g @plugin 'tmux-plugins/tmux-battery'
+{{ end -}}
+# End Plugins
+
+# Theme Configuration
+set -g @catppuccin_window_left_separator "█"
+set -g @catppuccin_window_right_separator "█ "
+set -g @catppuccin_window_number_position "right"
+set -g @catppuccin_window_middle_separator "  █"
+
+set -g @catppuccin_window_default_fill "number"
+
+set -g @catppuccin_window_current_fill "number"
+set -g @catppuccin_window_current_text "#W"
+set -g @catppuccin_window_default_text "#W"
+
+{{ if eq .chezmoi.hostname "rowdy-sasquatch" -}}
+set -g @catppuccin_status_modules_right "directory host date_time battery"
+{{ else -}}
+set -g @catppuccin_status_modules_right "directory host date_time"
+{{ end -}}
+set -g @catppuccin_date_time_icon null
+set -g @catppuccin_host_icon null
+
+set -g @catppuccin_status_left_separator "█"
+set -g @catppuccin_status_right_separator "█ "
+# set -g @catppuccin_status_left_separator  ""
+# set -g @catppuccin_status_right_separator " "
+set -g @catppuccin_status_fill "all"
+set -g @catppuccin_status_connect_separator "yes"
+# End Theme Configuration
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

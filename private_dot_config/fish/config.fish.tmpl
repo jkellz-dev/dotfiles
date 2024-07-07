@@ -1,0 +1,72 @@
+# vim: filetype=fish.chezmoitmpl
+
+# Docker/Podman
+
+# set the DOCKER_HOST to the Podman sock
+{{ if eq .chezmoi.hostname "Rusty-Slowboat" -}}
+set -Ux DOCKER_HOST unix:///var/folders/1_/1j5672qd5z39qdcysk398r240000gn/T/podman/podman-machine-default-api.sock
+{{ end -}}
+
+
+# fzf config
+fzf_configure_bindings --directory=\ct --git_status=\cg --git_log=\cl
+
+set fzf_preview_dir_cmd eza --all --color=always
+
+# vim keybindings
+set -gx EDITOR vim
+
+function my_vi_bindings
+    fish_vi_key_bindings
+    bind -M insert -m default jj backward-char force-repaint
+end
+set -g fish_key_bindings my_vi_bindings
+
+# PyEnv
+# pyenv init - | source
+
+# Abbreviations
+source $HOME/.config/fish/conf.d/abbr.fish
+
+
+if status is-interactive
+
+    # run man pages through bat
+    # setting theme to default because of a missalignment between the bat expected scopes and those set by theme maintainers
+    # See this [issue](https://github.com/sharkdp/bat/issues/2115)
+    set -Ux MANPAGER "sh -c 'col -bx | bat --theme=default -l man -p'"
+    set -Ux MANROFFOPT -c
+
+    # Commands to run in interactive sessions can go here
+    atuin init fish | source
+
+    bind -M insert \v _atuin_search
+    bind -M insert \e\[B _atuin_search
+
+    source $HOME/.config/fish/conf.d/intelli-shell.fish
+
+    bind -M insert \cs _intelli_search
+    bind -M insert \cb _intelli_save
+
+    # thefuck --alias | source
+    eval (thefuck --alias | tr '\n' ';')
+
+    direnv hook fish | source
+
+    # Enable Starship prompt
+    starship init fish | source
+
+    zoxide init fish | source
+
+    fnm env --use-on-cd | source
+end
+
+# The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/jonathan/.local/bin/google-cloud-sdk/path.fish.inc' ]; . '/Users/jonathan/.local/bin/google-cloud-sdk/path.fish.inc'; end
+
+# Created by `pipx` on 2024-04-16 16:59:46
+set PATH $PATH ~/.local/bin
+
+{{ if eq .chezmoi.hostname "Rusty-Slowboat" -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end -}}
