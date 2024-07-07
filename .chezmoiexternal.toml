@@ -16,7 +16,7 @@
     refreshPeriod = "168h"
 [".config/wezterm/presentation"]
     type = "git-repo"
-    url = "https://github.com/jkellz_dev/presentation.wez.git"
+    url = "https://github.com/xarvex/presentation.wez.git"
     refreshPeriod = "168h"
 [".config/yazi/plugins/ouch.yazi"]
     type = "git-repo"

@@ -10,7 +10,7 @@ local meta_key = "META"
 local keys = {
 	{ key = "z", mods = meta_key, action = act.TogglePaneZoomState },
 	{ key = "R", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
-	{ key = "l", mods = "SHIFT|CTRL", action = act.ShowLauncher },
+	{ key = "l", mods = "SHIFT|CTRL|" .. meta_key, action = act.ShowLauncher },
 	{ key = "Enter", mods = meta_key, action = act.ToggleFullScreen },
 
 	-- Font Size

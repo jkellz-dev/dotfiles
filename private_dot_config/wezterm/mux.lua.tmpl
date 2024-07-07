@@ -1,3 +1,4 @@
+-- vim: ft=lua.chezmoitmpl
 local wezterm = require("wezterm")
 local act = wezterm.action
 
@@ -50,12 +51,19 @@ local ssh_domains = {
 	},
 }
 
+local unix_domains = { {
+	name = "unix",
+} }
+
+{{ if eq .chezmoi.os "windows" -}}
+local wsl_domains = wezterm.default_wsl_domains()
+{{ end -}}
+
 return {
 	keys = keys,
 	ssh_domains = ssh_domains,
-	unix_domains = {
-		{
-			name = "unix",
-		},
-	},
+	unix_domains = unix_domains,
+{{ if eq .chezmoi.os "windows" -}}
+	wsl_domains = wsl_domains,
+{{ end -}}
 }
