@@ -152,11 +152,13 @@ packages:
       - libsmbclient-dev
       - libssh-dev
       - libssl-dev
+      - libdbus-1-dev
       - neofetch
       - neonctl
       - neovim
       - pipx
       - pkgconf
+      - pkg-config
       - podman
       - protobuf-compiler
       - python3-dev
