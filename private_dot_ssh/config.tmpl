@@ -1,4 +1,4 @@
-# vim: filetype=sshconfig
+# vim: filetype=sshconfig.chezmoitmpl
 {{ if ne .chezmoi.os "windows" -}}
 Host *
     IdentityAgent "~/.1password/agent.sock"
@@ -11,4 +11,4 @@ Host bitbucket-pjc
 
 Host rb
     HostName 192.168.4.100
-    IdentityFile ~/.ssh/rusty_slowboat_rsa.pub
+    IdentityFile ~/.ssh/risky-business.pub
