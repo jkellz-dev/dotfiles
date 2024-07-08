@@ -48,9 +48,6 @@ if status is-interactive
     bind -M insert \cs _intelli_search
     bind -M insert \cb _intelli_save
 
-    # thefuck --alias | source
-    eval (thefuck --alias | tr '\n' ';')
-
     direnv hook fish | source
 
     # Enable Starship prompt
