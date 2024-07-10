@@ -191,8 +191,11 @@ common_prefix = ["sudo"]
 ignored_commands = [
   "cd",
   "..",
+  "z",
   "ls",
-  "nvim"
+  "l",
+  "nvim",
+  "exit"
 ]
 
 [keys]
