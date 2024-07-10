@@ -1,6 +1,6 @@
-{{ if eq .chezmoi.os "linux" -}}
-# vim: filetype=sh.chezmoitmpl
 #! /bin/sh
+# vim: filetype=sh.chezmoitmpl
+{{ if eq .chezmoi.os "linux" -}}
 
 strfile ~/.config/fortunes/realfacts
 {{ end -}}
