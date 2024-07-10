@@ -176,7 +176,12 @@ packages:
       - vlc
       - wget
       - postgresql-client
-    ppas: [ppa:greymd/tmux-xpanes, ppa:maveonair/helix-editor]
+    ppas:
+      [
+        ppa:greymd/tmux-xpanes,
+        ppa:maveonair/helix-editor,
+        ppa:neovim-ppa/stable,
+      ]
     snaps:
       - signal-desktop
       - multipass
