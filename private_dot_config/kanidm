@@ -1,0 +1,5 @@
+# ~/.config/kanidm
+
+uri = "https://idm.jkellz.dev"
+verify_ca = true
+
