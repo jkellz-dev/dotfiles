@@ -58,6 +58,8 @@ if status is-interactive
     fnm env --use-on-cd | source
 
     pyenv init - | source
+
+    set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
 end
 
 # The next line updates PATH for the Google Cloud SDK.
