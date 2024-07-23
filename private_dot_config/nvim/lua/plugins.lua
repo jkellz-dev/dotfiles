@@ -80,6 +80,21 @@ return require("lazy").setup({
     "folke/which-key.nvim",
   },
 
+  {
+    "nathom/filetype.nvim",
+    config = function()
+      require("filetype").setup({
+        overrides = {
+          extensions = {
+            tf = "terraform",
+            tfvars = "terraform",
+            tfstate = "json",
+          },
+        },
+      })
+    end,
+  },
+
   -- File Explorer
   {
     "mikavilpas/yazi.nvim",
