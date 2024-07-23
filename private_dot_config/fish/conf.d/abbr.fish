@@ -4,9 +4,11 @@ abbr -a -- b bat
 abbr -a -- c cat
 abbr -a -- cm chezmoi
 abbr -a -- cp 'cp -i'
+abbr -a -- do doctl
 abbr -a -- docker podman
 abbr -a -- h history
 abbr -a -- kc kubectl
+abbr -a -- kx kubectx
 abbr -a -- lg lazygit
 abbr -a -- lzd lazydocker
 abbr -a -- mk microk8s

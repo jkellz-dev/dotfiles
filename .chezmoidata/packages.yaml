@@ -66,6 +66,7 @@ packages:
     brews:
       - curl
       - direnv
+      - doctl
       - ffmpegthumbnailer
       - fish
       - fortune
@@ -186,6 +187,7 @@ packages:
         ppa:neovim-ppa/stable,
       ]
     snaps:
+      - doctl
       - signal-desktop
       - multipass
       - kubectl --classic
