@@ -18,7 +18,8 @@ function __hugo_perform_completion
     __hugo_debug "args: $args"
     __hugo_debug "last arg: $lastArg"
 
-    set -l requestComp "$args[1] __complete $args[2..-1] $lastArg"
+    # Disable ActiveHelp which is not supported for fish shell
+    set -l requestComp "HUGO_ACTIVE_HELP=0 $args[1] __complete $args[2..-1] $lastArg"
 
     __hugo_debug "Calling $requestComp"
     set -l results (eval $requestComp 2> /dev/null)
@@ -54,6 +55,60 @@ function __hugo_perform_completion
     printf "%s\n" "$directiveLine"
 end
 
+# this function limits calls to __hugo_perform_completion, by caching the result behind $__hugo_perform_completion_once_result
+function __hugo_perform_completion_once
+    __hugo_debug "Starting __hugo_perform_completion_once"
+
+    if test -n "$__hugo_perform_completion_once_result"
+        __hugo_debug "Seems like a valid result already exists, skipping __hugo_perform_completion"
+        return 0
+    end
+
+    set --global __hugo_perform_completion_once_result (__hugo_perform_completion)
+    if test -z "$__hugo_perform_completion_once_result"
+        __hugo_debug "No completions, probably due to a failure"
+        return 1
+    end
+
+    __hugo_debug "Performed completions and set __hugo_perform_completion_once_result"
+    return 0
+end
+
+# this function is used to clear the $__hugo_perform_completion_once_result variable after completions are run
+function __hugo_clear_perform_completion_once_result
+    __hugo_debug ""
+    __hugo_debug "========= clearing previously set __hugo_perform_completion_once_result variable =========="
+    set --erase __hugo_perform_completion_once_result
+    __hugo_debug "Successfully erased the variable __hugo_perform_completion_once_result"
+end
+
+function __hugo_requires_order_preservation
+    __hugo_debug ""
+    __hugo_debug "========= checking if order preservation is required =========="
+
+    __hugo_perform_completion_once
+    if test -z "$__hugo_perform_completion_once_result"
+        __hugo_debug "Error determining if order preservation is required"
+        return 1
+    end
+
+    set -l directive (string sub --start 2 $__hugo_perform_completion_once_result[-1])
+    __hugo_debug "Directive is: $directive"
+
+    set -l shellCompDirectiveKeepOrder 32
+    set -l keeporder (math (math --scale 0 $directive / $shellCompDirectiveKeepOrder) % 2)
+    __hugo_debug "Keeporder is: $keeporder"
+
+    if test $keeporder -ne 0
+        __hugo_debug "This does require order preservation"
+        return 0
+    end
+
+    __hugo_debug "This doesn't require order preservation"
+    return 1
+end
+
+
 # This function does two things:
 # - Obtain the completions and store them in the global __hugo_comp_results
 # - Return false if file completion should be performed
@@ -64,17 +119,17 @@ function __hugo_prepare_completions
     # Start fresh
     set --erase __hugo_comp_results
 
-    set -l results (__hugo_perform_completion)
-    __hugo_debug "Completion results: $results"
+    __hugo_perform_completion_once
+    __hugo_debug "Completion results: $__hugo_perform_completion_once_result"
 
-    if test -z "$results"
+    if test -z "$__hugo_perform_completion_once_result"
         __hugo_debug "No completion, probably due to a failure"
         # Might as well do file completion, in case it helps
         return 1
     end
 
-    set -l directive (string sub --start 2 $results[-1])
-    set --global __hugo_comp_results $results[1..-2]
+    set -l directive (string sub --start 2 $__hugo_perform_completion_once_result[-1])
+    set --global __hugo_comp_results $__hugo_perform_completion_once_result[1..-2]
 
     __hugo_debug "Completions are: $__hugo_comp_results"
     __hugo_debug "Directive is: $directive"
@@ -170,7 +225,11 @@ end
 # Remove any pre-existing completions for the program since we will be handling all of them.
 complete -c hugo -e
 
+# this will get called after the two calls below and clear the $__hugo_perform_completion_once_result global
+complete -c hugo -n '__hugo_clear_perform_completion_once_result'
 # The call to __hugo_prepare_completions will setup __hugo_comp_results
 # which provides the program's completion choices.
-complete -c hugo -n '__hugo_prepare_completions' -f -a '$__hugo_comp_results'
-
+# If this doesn't require order preservation, we don't use the -k flag
+complete -c hugo -n 'not __hugo_requires_order_preservation && __hugo_prepare_completions' -f -a '$__hugo_comp_results'
+# otherwise we use the -k flag
+complete -k -c hugo -n '__hugo_requires_order_preservation && __hugo_prepare_completions' -f -a '$__hugo_comp_results'
