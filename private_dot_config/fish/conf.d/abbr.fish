@@ -19,6 +19,7 @@ abbr -a -- pc podman-compose
 abbr -a -- pm podman
 abbr -a -- rm 'rm -i'
 abbr -a -- tf tofu
+abbr -a -- tg terragrunt
 abbr -a -- tp telepresence
 abbr -a -- vim nvim
 abbr -a -- which 'type -a'
