@@ -106,6 +106,7 @@ packages:
       - samba
       - sd
       - terraform
+      - tofu
       - thefuck
       - tmux
         #- tmux-xpanes
