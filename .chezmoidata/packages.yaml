@@ -193,6 +193,7 @@ packages:
       - multipass
       - kubectl --classic
       - microk8s --classic --channel=latest/stable
+      - helm --classic
   windows:
     winget:
       - BurntSushi.ripgrep.MSVC
