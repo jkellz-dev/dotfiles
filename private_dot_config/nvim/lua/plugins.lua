@@ -61,6 +61,7 @@ return require("lazy").setup({
 
   {
     "towolf/vim-helm",
+    ft = "helm",
     config = function()
       require("plugins.helm").setup()
     end,

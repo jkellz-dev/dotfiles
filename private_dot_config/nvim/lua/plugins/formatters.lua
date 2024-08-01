@@ -29,6 +29,9 @@ function M.setup()
     },
     formatters = {
       codespell = { args = { "-I", os.getenv("HOME") .. "/.config/codespell/.codespellignore" } },
+      terraform_fmt = {
+        command = "/opt/homebrew/bin/tofu",
+      },
     },
     format_on_save = { timeout_ms = 500, lsp_fallback = true },
   })

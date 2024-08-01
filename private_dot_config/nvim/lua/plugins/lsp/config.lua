@@ -64,6 +64,7 @@ function M.setup()
   lspconfig.ruff_lsp.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.sqlls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.terraformls.setup({ capabilities = capabilities, on_attach = on_attach })
+  lspconfig.tflint.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.yamlls.setup({
     capabilities = capabilities,

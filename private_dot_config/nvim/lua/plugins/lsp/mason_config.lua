@@ -25,6 +25,7 @@ function M.setup()
       "rust_analyzer",
       "sqlls",
       "terraformls",
+      "tflint",
       "tsserver",
       "yamlls",
       "fsautocomplete",
