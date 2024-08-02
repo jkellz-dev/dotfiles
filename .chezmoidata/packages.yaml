@@ -10,6 +10,7 @@ packages:
       - cargo-rdme
       - cargo-semver-checks
       - cargo-update
+      - cargo-workspaces
       - eza
       - fd-find
       - fnm
