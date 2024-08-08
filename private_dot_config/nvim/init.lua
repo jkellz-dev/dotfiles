@@ -84,6 +84,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     set.expandtab = true
     set.spell = true
 
+    require("section-wordcount").wordcounter()
+
     require("which-key").register({
       ["<leader>"] = {
         m = {

@@ -761,6 +761,12 @@ return require("lazy").setup({
     -- end,
   },
   {
+    "dimfeld/section-wordcount.nvim",
+    config = function()
+      require("section-wordcount").setup({ highlight = "String", virt_text_pos = "eol" })
+    end,
+  },
+  {
     "chomosuke/typst-preview.nvim",
     ft = "typst",
     version = "0.3.*",
