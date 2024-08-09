@@ -25,56 +25,9 @@ fi
 
 if ! program_loc="$(which "op")" || [ "$program_loc" = "" ]; then
   echo "LINUX: Installing 1Password"
-  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-
-  # Add the 1Password apt repository:
-  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
-
-  # Add the debsig-verify policy:
-  sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-  curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-  sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-
-  # Create a directory to store APT repository keys if it doesn't exist:
-
-  sudo install -d -m 0755 /etc/apt/keyrings
-fi
-
-if ! program_loc="$(which "firefox")" || [ "$program_loc" = "" ]; then
-  echo "LINUX: Installing Firefox"
-  # Import the Mozilla APT repository signing key:
-
-  wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
-
-  # The fingerprint should be 35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3. You may check it with the following command:
-  gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
-
-  # Next, add the Mozilla APT repository to your sources list:
-  echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
-
-  # Configure APT to prioritize packages from the Mozilla repository:
-  echo '
-  Package: *
-  Pin: origin packages.mozilla.org
-  Pin-Priority: 1000
-  ' | sudo tee /etc/apt/preferences.d/mozilla
+  sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+  sudo zypper -n addrepo https://downloads.1password.com/linux/rpm/stable/x86_64 1password
+  sudo zypper -n install 1password
 
 fi
 
-if ! program_loc="$(which "terraform")" || [ "$program_loc" = "" ]; then
-  echo "LINUX: Installing terraform"
-wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install terraform
-fi
-# Update your package list and install the Firefox .deb package:
-sudo apt update
-
-if ! program_loc="$(which "op")" || [ "$program_loc" = "" ]; then
-  sudo apt install 1password 1password-cli
-fi
-
-if ! program_loc="$(which "firefox")" || [ "$program_loc" = "" ]; then
-  sudo apt install firefox
-fi
