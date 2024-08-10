@@ -1,17 +1,12 @@
 #!/usr/bin/env sh
-# vim: filetype=sh.chezmoitmpl
 
-{{ range .packages.linux.ppas -}}
-sudo zypper -n install {{ . }}
-{{ end -}}
+sudo zypper -n install {{ list .packages.linux.apt | join " " | trimAll "[]" }}
 
-{{- template "cargo-install.sh.tmpl" . }}
+# spacer
 
-{{- template "golang-install.sh.tmpl" . }}
+{{ template "cargo-install.sh.tmpl" . }}
 
-{{- template "pipx-install.sh.tmpl" . }}
+{{ template "golang-install.sh.tmpl" . }}
 
-# install neonctl
-curl -sL https://github.com/neondatabase/neonctl/releases/latest/download/neonctl-linux-x64 -o neonctl
+{{ template "pipx-install.sh.tmpl" . }}
 
-sudo mv neonctl /usr/local/bin/neonctl

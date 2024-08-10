@@ -124,21 +124,6 @@ return require("lazy").setup({
     },
   },
   {
-    -- example: include a plugin
-    "DreamMaoMao/keyjump.yazi",
-    lazy = true,
-    build = function(plugin)
-      require("yazi.plugin").build_plugin(plugin)
-    end,
-  },
-  {
-    "DreamMaoMao/fg.yazi",
-    lazy = true,
-    build = function(plugin)
-      require("yazi.plugin").build_plugin(plugin)
-    end,
-  },
-  {
     "sharklasers996/eza-preview.yazi",
     lazy = true,
     build = function(plugin)

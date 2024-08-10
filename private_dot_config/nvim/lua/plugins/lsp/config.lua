@@ -45,7 +45,6 @@ function M.setup()
     },
   })
   lspconfig.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
-  lspconfig.bufls.setup({ capabilities = capabilities, on_attach = on_attach })
   -- lspconfig.clangd.setup {  capabilities = capabilities, on_attach = on_attach  }
   lspconfig.clojure_lsp.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.cmake.setup({ capabilities = capabilities })

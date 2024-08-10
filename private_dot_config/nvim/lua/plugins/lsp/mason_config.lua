@@ -5,7 +5,6 @@ function M.setup()
     ensure_installed = {
       "awk_ls",
       "bashls",
-      "bufls",
       "clangd",
       "clojure_lsp",
       "cmake",
