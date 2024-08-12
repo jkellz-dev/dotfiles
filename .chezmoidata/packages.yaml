@@ -50,6 +50,31 @@ packages:
     - github.com/joshmedeski/sesh@latest
     - github.com/kubernetes/kompose@latest
     - github.com/mikefarah/yq/v4@latest
+    - gotest.tools/gotestsum@latest
+    - github.com/segmentio/golines@latest
+    - github.com/kyoh86/richgo@latest
+    - golang.org/x/tools/cmd/goimports@latest
+    - golang.org/x/tools/cmd/callgraph@latest
+    - golang.org/x/tools/cmd/digraph@latest
+    - golang.org/x/tools/cmd/stringer@latest
+    - golang.org/x/tools/cmd/toolstash@latest
+    - golang.org/x/tools/cmd/gorename@latest
+    - golang.org/x/tools/cmd/deadcode@latest
+    - golang.org/x/tools/cmd/fiximports@latest
+    - github.com/tmc/json-to-struct@latest
+    - github.com/davidrjenni/reftools/cmd/fillstruct@latest
+    - github.com/davidrjenni/reftools/cmd/fillswitch@latest
+    - github.com/davidrjenni/reftools/cmd/fixplurals@latest
+    - mvdan.cc/gofumpt@latest
+    - github.com/abice/go-enum@latest
+    - go.uber.org/mock/mockgen@latest
+    - github.com/koron/iferr@latest
+    - github.com/abenz1267/gomvp@latest
+    - github.com/fatih/gomodifytags@latest
+    - golang.org/x/vuln/cmd/govulncheck@latest
+    - github.com/onsi/ginkgo/v2/ginkgo@latest
+    - github.com/josharian/impl@latest
+    - github.com/cweill/gotests/gotests@latest
   pipx:
     - codespell
     - cqlsh
@@ -164,6 +189,7 @@ packages:
       - samba-client
       - samba-devel
       - rage-encryption
+      - shfmt
   windows:
     winget:
       - BurntSushi.ripgrep.MSVC

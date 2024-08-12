@@ -79,6 +79,21 @@ return require("lazy").setup({
   -- Note: Keybindings are configured in keybindings.lua for better self-documentation
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
   },
 
   {
@@ -702,6 +717,13 @@ return require("lazy").setup({
     version = false,
     config = function()
       require("plugins.mini-align").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.icons",
+    version = false,
+    config = function()
+      require("plugins.mini-icons").setup()
     end,
   },
 

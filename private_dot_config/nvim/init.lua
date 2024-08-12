@@ -60,18 +60,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     set.filetype = "typst"
     set.spell = true
 
-    require("which-key").register({
-      ["<leader>"] = {
-        m = {
-          m = { "<cmd>TypstPreview<cr>", "Start Typst Preview" },
-          s = { "<cmd>TypstPreviewStop<cr>", "Stop Typst Preview" },
-          t = { "<cmd>TypstPreviewToggle<cr>", "Toggle Typst Preview" },
-        },
-      },
+    local wk = require("which-key")
+    wk.add({
+      { "<leader>m", mode = { "n" }, group = "Typst Preview" },
+      { "<leader>mm", "<cmd>TypstPreview<cr>", desc = "Start Typst Preview" },
+      { "<leader>ms", "<cmd>TypstPreviewStop<cr>", desc = "Stop Typst Preview" },
+      { "<leader>mt", "<cmd>TypstPreviewToggle<cr>", desc = "Toggle Typst Preview" },
     })
-
-    -- keymap("n", "<leader>mm", "<cmd>TypstPreview<cr>", { noremap = true, silent = true })
-    -- keymap("n", "<leader>ms", "<cmd>TypstPreviewStop<cr>", { noremap = true, silent = true })
   end,
 })
 
@@ -86,17 +81,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
     require("section-wordcount").wordcounter()
 
-    require("which-key").register({
-      ["<leader>"] = {
-        m = {
-          m = { "<cmd>MarkdownPreview<cr>", "Start Markdown Preview" },
-          s = { "<cmd>MarkdownPreviewStop<cr>", "Stop Markdown Preview" },
-          t = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle Markdown Preview" },
-        },
-      },
+    local wk = require("which-key")
+    wk.add({
+      { "<leader>m", mode = { "n" }, group = "Markdown Preview" },
+      { "<leader>mm", "<cmd>MarkdownPreview<cr>", desc = "Start Markdown Preview" },
+      { "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop Markdown Preview" },
+      { "<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Markdown Preview" },
     })
-    -- keymap("n", "<leader>mm", "<cmd>MarkdownPreview<cr>", { noremap = true, silent = true })
-    -- keymap("n", "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", { noremap = true, silent = true })
   end,
 })
 
