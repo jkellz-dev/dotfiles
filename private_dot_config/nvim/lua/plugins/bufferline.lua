@@ -4,12 +4,12 @@ function M.setup()
   require("bufferline").setup({
     highlights = require("catppuccin.groups.integrations.bufferline").get(),
     options = {
-      mode = "buffers",                    -- set to "tabs" to only show tabpages instead
+      mode = "buffers", -- set to "tabs" to only show tabpages instead
       numbers = "buffer_id",
-      close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
+      close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
       right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-      left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
-      middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
+      left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+      middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
       indicator = {
         style = "icon",
       },
@@ -23,7 +23,6 @@ function M.setup()
       truncate_names = true,
       tab_size = 30,
       diagnostics = "nvim_lsp",
-      diagnostics_update_in_insert = true,
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
         return "(" .. count .. ")"
       end,
@@ -43,7 +42,7 @@ function M.setup()
         -- This can be used to change how bufferline fetches the icon
         -- for an element e.g. a buffer or a tab.
         -- e.g.
-        local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+        local icon, hl = require("nvim-web-devicons").get_icon_by_filetype(element.filetype, { default = false })
         return icon, hl
         -- -- or
         -- local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}

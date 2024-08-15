@@ -114,7 +114,6 @@ packages:
       - make
       - mold
       - mpv
-      - multipass
       - neofetch
       - neonctl
       - neovim
@@ -127,13 +126,11 @@ packages:
       - ripgrep
       - samba
       - sd
-      - terraform
-      - tofu
+      - opentofu
       - thefuck
       - tmux
       - tree
       - tree-sitter
-      - ubuntu/microk8s/microk8s
       - unar
       - wget
       - whois
