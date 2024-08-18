@@ -190,6 +190,7 @@ packages:
       - samba-devel
       - rage-encryption
       - shfmt
+      - open-iscsi
   windows:
     winget:
       - BurntSushi.ripgrep.MSVC

@@ -22,7 +22,7 @@ set.cursorline = true
 
 set.clipboard = "unnamedplus"
 
-vim.g.python3_host_prog = "/Users/jonathan/.venv/py3nvim/bin/python"
+vim.g.python3_host_prog = "/home/jonathan/.pyenv/shims/python"
 
 local undodir = vim.fn.expand("~/.local/share/nvim/undodir")
 if vim.fn.isdirectory(undodir) == 0 then
