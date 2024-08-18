@@ -40,24 +40,24 @@ wezterm.on("smart_workspace_switcher.workspace_chosen", function(window, path)
 	}))
 end)
 
-workspace_switcher.set_workspace_formatter(function(label)
+workspace_switcher.workspace_formatter = function(label)
 	return wezterm.format({
 		{ Attribute = { Italic = true } },
 		{ Foreground = { Color = "green" } },
 		{ Background = { Color = "black" } },
 		{ Text = "󱂬: " .. label },
 	})
-end)
+end
 
 require("presentation.plugin").apply_to_config(data, {
-    font_size_multiplier = 1.8, -- sets for both "presentation" and "presentation_full"
-    presentation = {
-        enabled = true,
-        maximize = false,
-        keybind = { key = "P", mods = "CTRL|ALT|SHIFT" } -- setting a keybind
-    },
-    presentation_full = {
-        enabled = false,
-    }
+	font_size_multiplier = 1.8, -- sets for both "presentation" and "presentation_full"
+	presentation = {
+		enabled = true,
+		maximize = false,
+		keybind = { key = "P", mods = "CTRL|ALT|SHIFT" }, -- setting a keybind
+	},
+	presentation_full = {
+		enabled = false,
+	},
 })
 return data
