@@ -17,6 +17,7 @@ packages:
       - fsays
       - git-delta
       - just
+      - kanidm_tools
       - mdbook
       - oidc-cli
       - ouch
@@ -188,6 +189,7 @@ packages:
       - rage-encryption
       - shfmt
       - open-iscsi
+      - systemd-devel
   windows:
     winget:
       - BurntSushi.ripgrep.MSVC
