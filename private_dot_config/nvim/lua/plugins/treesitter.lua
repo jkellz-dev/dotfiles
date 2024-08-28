@@ -64,7 +64,7 @@ function M.setup()
       enable = true,
     },
     rainbow = {
-      enable = true,
+      enable = false,
       extended_mode = true,
       max_file_lines = nil,
       ---- list of languages you want to disable the plugin for

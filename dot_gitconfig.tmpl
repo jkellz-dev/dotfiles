@@ -21,6 +21,7 @@
   {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
   sshCommand = ssh.exe
   {{-   end }}
+	autocrlf = input
   {{- end }}
 [interactive]
   difffilter = delta --color-only
