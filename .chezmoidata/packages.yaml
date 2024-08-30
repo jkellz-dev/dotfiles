@@ -41,6 +41,7 @@ packages:
       - starship
       - yazi-fm
       - yazi-cli
+      - zellij
     locked:
   golang:
     - github.com/charmbracelet/glow@latest
