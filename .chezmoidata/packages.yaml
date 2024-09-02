@@ -45,6 +45,7 @@ packages:
       - zoxide
     locked:
   golang:
+    - github.com/nats-io/natscli/nats@latest
     - github.com/charmbracelet/glow@latest
     - github.com/dancnb/sonicradio@latest
     - github.com/google/yamlfmt/cmd/yamlfmt@latest
