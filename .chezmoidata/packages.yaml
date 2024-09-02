@@ -4,11 +4,14 @@ packages:
     standard:
       - atuin
       - bat
+      - bottom
       - cargo-generate
       - cargo-get
       - cargo-make
+      - cargo-outdated
       - cargo-rdme
       - cargo-semver-checks
+      - cargo-udeps
       - cargo-update
       - cargo-workspaces
       - eza
@@ -16,32 +19,30 @@ packages:
       - fnm
       - fsays
       - git-delta
+      - intelli-shell
       - just
       - kanidm_tools
       - mdbook
+      - mdsf
+      - nu
       - oidc-cli
       - ouch
       - presenterm
       - ripgrep
       - sd
       - shellharden
+      - starship
       - stylua
       - tealdeer
       - tree-sitter-cli
       - typos-cli
-      - typst-lsp
       - typst-cli
+      - typst-lsp
       - typstyle
-      - zoxide
-      - bottom
-      - cargo-outdated
-      - cargo-udeps
-      - mdsf
-      - intelli-shell
-      - starship
-      - yazi-fm
       - yazi-cli
+      - yazi-fm
       - zellij
+      - zoxide
     locked:
   golang:
     - github.com/charmbracelet/glow@latest

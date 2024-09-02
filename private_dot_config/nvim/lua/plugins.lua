@@ -507,6 +507,10 @@ return require("lazy").setup({
   -- Tresitter for minimal source code highlighting
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      { "nushell/tree-sitter-nu" },
+    },
+    build = ":TSUpdate",
     run = ":TSUpdate",
     config = function()
       require("plugins.treesitter").setup()
