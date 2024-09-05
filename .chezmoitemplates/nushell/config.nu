@@ -890,8 +890,7 @@ $env.config = {
     ]
 }
 
-alias l = ls -al
-
+alias l = eza -lagh --git
 
 use ~/.local/share/starship/init.nu
 source ~/.local/share/zoxide/init.nu
