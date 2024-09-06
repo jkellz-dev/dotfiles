@@ -891,6 +891,7 @@ $env.config = {
 }
 
 alias l = eza -lagh --git
+alias vim = nvim
 
 use ~/.local/share/starship/init.nu
 source ~/.local/share/zoxide/init.nu
