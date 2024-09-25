@@ -1,10 +1,6 @@
 [manager]
 show_hidden = true
 
-[preview]
- ueberzug_scale = 0.5
- uberzug_offset = [0.5, 0.5, -0.5, -0.5]
-
 [plugin]
 prepend_previewers = [
 	{ name = "*/", run = "eza-preview" },
@@ -16,4 +12,10 @@ prepend_previewers = [
 	{ mime = "application/x-7z-compressed", run = "ouch" },
 	{ mime = "application/x-rar",           run = "ouch" },
 	{ mime = "application/x-xz",            run = "ouch" },
+]
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true, for = "unix" },
+	{ run = "nvim %*",   block = true, for = "windows" },
 ]

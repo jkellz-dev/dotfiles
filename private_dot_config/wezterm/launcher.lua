@@ -1,5 +1,10 @@
 local launch_menu = {
 	{
+		label = "Yazi",
+		args = { "yazi" },
+	},
+
+	{
 		-- Optional label to show in the launcher. If omitted, a label
 		-- is derived from the `args`
 		label = "lazygit",
