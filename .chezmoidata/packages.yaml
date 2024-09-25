@@ -85,9 +85,10 @@ packages:
     - cqlsh
     - jrnl
     - mdformat
-    - shandy-sqlfmt
     - podman-compose
+    - pre-commit
     - ruff
+    - shandy-sqlfmt
     - yamlfix
   darwin:
     brews:
