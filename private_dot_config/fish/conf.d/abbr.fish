@@ -21,6 +21,7 @@ abbr -a -- rm 'rm -i'
 abbr -a -- tf tofu
 abbr -a -- tg terragrunt
 abbr -a -- tp telepresence
+abbr -a -- ts tailscale
 abbr -a -- vim nvim
 abbr -a -- which 'type -a'
 abbr -a --position anywhere --function last_history_item -- !!
