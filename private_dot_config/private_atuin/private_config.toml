@@ -29,7 +29,7 @@ auto_sync = true
 update_check = false
 
 ## address of the sync server
-sync_address = "https://dev.jkellz.dev/history"
+sync_address = "https://history.turkey-herring.ts.net"
 
 ## how often to sync history. note that this is only triggered when a command
 ## is ran, so sync intervals may well be longer
@@ -162,26 +162,27 @@ keymap_mode = "vim-insert"
 
 [stats]
 ## Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
-common_subcommands = [
-  "zypper",
-  "cargo",
-  "composer",
-  "docker",
-  "git",
-  "go",
-  "ip",
-  "kubectl",
-  "nix",
-  "nmcli",
-  "npm",
-  "pecl",
-  "pnpm",
-  "podman",
-  "port",
-  "systemctl",
-  "tmux",
-  "yarn",
-]
+# common_subcommands = [
+#   "apt",
+#   "cargo",
+#   "composer",
+#   "dnf",
+#   "docker",
+#   "git",
+#   "go",
+#   "ip",
+#   "kubectl",
+#   "nix",
+#   "nmcli",
+#   "npm",
+#   "pecl",
+#   "pnpm",
+#   "podman",
+#   "port",
+#   "systemctl",
+#   "tmux",
+#   "yarn",
+# ]
 
 ## Set commands that should be totally stripped and ignored from stats
 common_prefix = ["sudo"]
