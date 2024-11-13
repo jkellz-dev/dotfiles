@@ -11,7 +11,6 @@ abbr -a -- kc kubectl
 abbr -a -- kx kubectx
 abbr -a -- lg lazygit
 abbr -a -- lzd lazydocker
-abbr -a -- mk microk8s
 abbr -a -- mkdir 'mkdir -p'
 abbr -a -- mp multipass
 abbr -a -- mv 'mv -i'
@@ -21,7 +20,7 @@ abbr -a -- rm 'rm -i'
 abbr -a -- tf tofu
 abbr -a -- tg terragrunt
 abbr -a -- tp telepresence
-abbr -a -- ts tailscale
+abbr -a --position anywhere -- ts tailscale
 abbr -a -- vim nvim
 abbr -a -- which 'type -a'
 abbr -a --position anywhere --function last_history_item -- !!
