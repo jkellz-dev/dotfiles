@@ -1,3 +1,3 @@
-function terraform --wraps=tofu --description 'wrapps the tofu command'
-tofu $argv
+function terraform --wraps=tofu --description 'wraps the tofu command'
+    tofu $argv
 end
