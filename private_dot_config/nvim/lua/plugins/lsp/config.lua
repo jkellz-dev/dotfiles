@@ -60,11 +60,11 @@ function M.setup()
   lspconfig.jsonls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.marksman.setup({ capabilities = capabilities, on_attach = on_attach })
   -- lspconfig.pyright.setup({ capabilities = capabilities, on_attach = on_attach })
-  lspconfig.ruff_lsp.setup({ capabilities = capabilities, on_attach = on_attach })
+  lspconfig.ruff.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.sqls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.terraformls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.tflint.setup({ capabilities = capabilities, on_attach = on_attach })
-  lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
+  lspconfig.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.yamlls.setup({
     capabilities = capabilities,
     on_attach = on_attach,

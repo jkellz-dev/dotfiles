@@ -13,7 +13,18 @@ Host rb
     HostName 192.168.4.100
     IdentityFile ~/.ssh/risky-business.pub
 
+Host ruby-mojito
+  HostName ruby-mojito.local
+  IdentityFile ~/.ssh/risky-business.pub
+  User root
+
 Host rusty-pelican
   HostName 192.168.7.39
   IdentityFile ~/.ssh/rusty-pelican.pub
+  User root
+
+Host microos
+  HostName 127.0.0.1
+  Port 22022
+  IdentityFile ~/.ssh/risky-business.pub
   User root

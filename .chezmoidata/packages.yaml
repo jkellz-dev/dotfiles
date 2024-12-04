@@ -11,7 +11,6 @@ packages:
       - cargo-outdated
       - cargo-rdme
       - cargo-semver-checks
-      - cargo-udeps
       - cargo-update
       - cargo-workspaces
       - eza
@@ -24,11 +23,11 @@ packages:
       - kanidm_tools
       - mdbook
       - mdsf
-      - nu
-      - oidc-cli
+      - mise
       - ouch
       - presenterm
       - ripgrep
+      - rustic-rs
       - sd
       - shellharden
       - starship
@@ -44,6 +43,9 @@ packages:
       - zellij
       - zoxide
     locked:
+      - cargo-udeps
+      - nu
+      - sqlx-cli
   golang:
     - github.com/nats-io/natscli/nats@latest
     - github.com/charmbracelet/glow@latest
@@ -81,6 +83,7 @@ packages:
     - github.com/cweill/gotests/gotests@latest
     - github.com/cloudflare/cloudflare-go/cmd/flarectl@latest
   pipx:
+    - anthropic-cli
     - codespell
     - cqlsh
     - jrnl
@@ -89,6 +92,8 @@ packages:
     - pre-commit
     - ruff
     - shandy-sqlfmt
+    - sqlfluff
+    - uv
     - yamlfix
   darwin:
     brews:

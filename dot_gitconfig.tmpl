@@ -18,9 +18,11 @@
   sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
   autocrlf = true
   {{- else if eq .chezmoi.os "linux" }}
-  {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
   sshCommand = ssh.exe
-  {{-   end }}
+  {{- end }}
+	autocrlf = input
+  {{- else if eq .chezmoi.os "darwin" }}
 	autocrlf = input
   {{- end }}
 [interactive]
