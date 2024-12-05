@@ -30,6 +30,7 @@ source $HOME/.config/fish/conf.d/abbr.fish
 
 
 if status is-interactive
+    mise activate fish --shims | source
 
     # run man pages through bat
     # setting theme to default because of a missalignment between the bat expected scopes and those set by theme maintainers
@@ -48,8 +49,6 @@ if status is-interactive
     bind -M insert \cs _intelli_search
     bind -M insert \cb _intelli_save
 
-    direnv hook fish | source
-
     # Enable Starship prompt
     starship init fish | source
 
@@ -60,12 +59,14 @@ if status is-interactive
     pyenv init - | source
 
     set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
+
+    mise activate fish | source
+else
+    mise activate fish --shims | source
 end
 
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/Users/jonathan/.local/bin/google-cloud-sdk/path.fish.inc' ]; . '/Users/jonathan/.local/bin/google-cloud-sdk/path.fish.inc'; end
-
-mise activate fish | source
 
 # Created by `pipx` on 2024-04-16 16:59:46
 set PATH $PATH ~/.local/bin
