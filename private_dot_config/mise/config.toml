@@ -59,7 +59,6 @@
 bun = "latest"
 cargo-binstall = "latest"
 choose = "latest"
-go = "latest"
 kustomize = "latest"
 opentofu = "latest"
 uv = "latest"
