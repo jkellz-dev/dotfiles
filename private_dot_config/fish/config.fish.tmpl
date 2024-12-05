@@ -22,14 +22,13 @@ function my_vi_bindings
 end
 set -g fish_key_bindings my_vi_bindings
 
-# PyEnv
-pyenv init - | source
-
 # Abbreviations
 source $HOME/.config/fish/conf.d/abbr.fish
 
+mise reshim
 
 if status is-interactive
+
     mise activate fish --shims | source
 
     # run man pages through bat
@@ -56,11 +55,10 @@ if status is-interactive
 
     fnm env --use-on-cd | source
 
-    pyenv init - | source
-
     set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
 
     mise activate fish | source
+
 else
     mise activate fish --shims | source
 end
