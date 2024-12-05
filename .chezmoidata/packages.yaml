@@ -5,6 +5,44 @@ packages:
       - mise
     locked:
   golang:
+    - github.com/abenz1267/gomvp@latest
+    - github.com/abice/go-enum@latest
+    - github.com/charmbracelet/glow@latest
+    - github.com/cloudflare/cloudflare-go/cmd/flarectl@latest
+    - github.com/cweill/gotests/gotests@latest
+    - github.com/dancnb/sonicradio@latest
+    - github.com/davidrjenni/reftools/cmd/fillstruct@latest
+    - github.com/davidrjenni/reftools/cmd/fillswitch@latest
+    - github.com/davidrjenni/reftools/cmd/fixplurals@latest
+    - github.com/fatih/gomodifytags@latest
+    - github.com/google/yamlfmt/cmd/yamlfmt@latest
+    - github.com/jesseduffield/lazydocker@latest
+    - github.com/jesseduffield/lazygit@latest
+    - github.com/josharian/impl@latest
+    - github.com/joshmedeski/sesh@latest
+    - github.com/koron/iferr@latest
+    - github.com/kubernetes/kompose@latest
+    - github.com/kubernetes/kompose@latest
+    - github.com/kyoh86/richgo@latest
+    - github.com/mikefarah/yq/v4@latest
+    - github.com/mozillazg/go-slugify/slugify@latest
+    - github.com/nats-io/natscli/nats@latest
+    - github.com/onsi/ginkgo/v2/ginkgo@latest
+    - github.com/segmentio/golines@latest
+    - github.com/tmc/json-to-struct@latest
+    - go.uber.org/mock/mockgen@latest
+    - golang.org/x/tools/cmd/callgraph@latest
+    - golang.org/x/tools/cmd/deadcode@latest
+    - golang.org/x/tools/cmd/digraph@latest
+    - golang.org/x/tools/cmd/fiximports@latest
+    - golang.org/x/tools/cmd/goimports@latest
+    - golang.org/x/tools/cmd/gorename@latest
+    - golang.org/x/tools/cmd/stringer@latest
+    - golang.org/x/tools/cmd/toolstash@latest
+    - golang.org/x/vuln/cmd/govulncheck@latest
+    - gotest.tools/gotestsum@latest
+    - mvdan.cc/gofumpt@latest
+    - mvdan.cc/sh/v3/cmd/shfmt@latest@latest
   pipx:
   darwin:
     brews:
