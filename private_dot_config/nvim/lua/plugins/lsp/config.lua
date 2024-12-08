@@ -36,9 +36,12 @@ function M.setup()
   -- })
 
   -- Rust and clangd are setup in their respective files in plugins/
-  lspconfig.typst_lsp.setup({
+  lspconfig.tinymist.setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    command = "tinymist",
+    filetypes = { "typst" },
+    offset_encoding = "utf-8",
     settings = {
       exportPdf = "never", -- Choose onType, onSave or never.
       -- serverPath = "" -- Normally, there is no need to uncomment it.

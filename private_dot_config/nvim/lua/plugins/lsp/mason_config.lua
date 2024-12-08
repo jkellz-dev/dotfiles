@@ -28,7 +28,7 @@ function M.setup()
       "terraformls",
       "tflint",
       "ts_ls",
-      "typst_lsp",
+      "tinymist",
       "yamlls",
       -- "omnisharp",
       -- "pyright",
