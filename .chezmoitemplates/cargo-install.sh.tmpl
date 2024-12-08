@@ -3,6 +3,8 @@
 # Install Cargo Packages
 echo "CARGO: {{ list .packages.cargo.standard | join " " | trimAll "[]" }}"
 
-cargo install {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
+gh auth login
 
-# cargo install --locked {{ list .packages.cargo.locked | join " " | trimAll "[]" }}
+cargo binstall --github-token "$(gh auth token)" {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
+
+cargo binstall --github-token "$(gh auth token)" --locked {{ list .packages.cargo.locked | join " " | trimAll "[]" }}

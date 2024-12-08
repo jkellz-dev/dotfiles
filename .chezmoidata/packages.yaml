@@ -3,7 +3,50 @@ packages:
   cargo:
     standard:
       - mise
+      - cargo-outdated
     locked:
+      - atuin
+      - bat
+      - bottom
+      - cargo-generate
+      - cargo-get
+      - cargo-make
+      - cargo-rdme
+      - cargo-semver-checks
+      - cargo-udeps
+      - cargo-update
+      - cargo-workspaces
+      - eza
+      - fd-find
+      - fnm
+      - fsays
+      - git-delta
+      - intelli-shell
+      - just
+      - kanidm_tools
+      - mdbook
+      - mdsf
+      - nu
+      - ouch
+      - presenterm
+      - ripgrep
+      - rustic-rs
+      - sd
+      - shellharden
+      - sqlx-cli
+      - starship
+      - stylua
+      - tealdeer
+      - tree-sitter-cli
+      - typos-cli
+      - typst-cli
+      - typst-lsp
+      - typstyle
+      - yazi-cli
+      - yazi-fm
+      - zellij
+      - zoxide
+
   golang:
     - github.com/abenz1267/gomvp@latest
     - github.com/abice/go-enum@latest
@@ -54,6 +97,7 @@ packages:
       - fzf
       - gcc
       - gd
+      - gh
       - gettext
       - git
       - golangci-lint
@@ -110,6 +154,7 @@ packages:
       - fish
       - fzf
       - gettext-runtime
+      - gh
       - git
       - helix
       - hugo
@@ -139,7 +184,6 @@ packages:
       - samba-client
       - samba-devel
       - rage-encryption
-      - shfmt
       - open-iscsi
       - systemd-devel
   windows:
