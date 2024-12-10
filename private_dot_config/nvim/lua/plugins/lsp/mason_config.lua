@@ -17,6 +17,7 @@ function M.setup()
       "fsautocomplete",
       "golangci_lint_ls",
       "gopls",
+      "harper_ls",
       "html",
       "jsonls",
       "lua_ls",

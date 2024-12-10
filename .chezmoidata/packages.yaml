@@ -21,6 +21,7 @@ packages:
       - fnm
       - fsays
       - git-delta
+      - harper-ls
       - intelli-shell
       - just
       - kanidm_tools
