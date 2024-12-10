@@ -1,16 +1,16 @@
 # vim: filetype=toml.gotexttmpl
+encryption = "age"
+[age]
+command = "rage"
+identity = "~/.config/age/rage-key.txt"
+recipients = "age15nrnkq2tlj8vyfpxwqnh2rwkknayqavd66620m93ukzrpjge6etq4twspy"
+
 {{ $email := promptString "email" -}}
 
 umask = 0o022
 
 [onepassword]
 prompt = true
-
-encryption = "age"
-[age]
-command = "rage"
-identity = "~/.config/age/rage-key.txt"
-recipients = "age15nrnkq2tlj8vyfpxwqnh2rwkknayqavd66620m93ukzrpjge6etq4twspy"
 
 [diff]
 exclude = ["scripts"]

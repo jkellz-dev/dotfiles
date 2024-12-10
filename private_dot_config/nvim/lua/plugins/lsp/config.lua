@@ -59,7 +59,31 @@ function M.setup()
   lspconfig.erlangls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.golangci_lint_ls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach })
-  lspconfig.harper_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+  lspconfig.harper_ls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = {
+      "c",
+      "cpp",
+      "cs",
+      "gitcommit",
+      "go",
+      "html",
+      "java",
+      "javascript",
+      "lua",
+      "markdown",
+      "nix",
+      "python",
+      "ruby",
+      "rust",
+      "swift",
+      "text",
+      "toml",
+      "typescript",
+      "typescriptreact",
+    },
+  })
   lspconfig.html.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.jsonls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.marksman.setup({ capabilities = capabilities, on_attach = on_attach })
