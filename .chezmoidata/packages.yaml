@@ -9,6 +9,7 @@ packages:
       - bat
       - bp
       - bottom
+      - broot
       - cargo-generate
       - cargo-get
       - cargo-make
