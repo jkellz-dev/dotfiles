@@ -12,8 +12,6 @@ function M.setup()
       "cssls",
       "dockerls",
       "elixirls",
-      "elixirls",
-      "fsautocomplete",
       "fsautocomplete",
       "golangci_lint_ls",
       "gopls",
@@ -34,7 +32,7 @@ function M.setup()
       -- "omnisharp",
       -- "pyright",
     },
-    -- automatic_installation = true,
+    -- Automatic_installation = true,
     automatic_installation = { exclude = { "clangd", "helm_ls" } },
   })
 end

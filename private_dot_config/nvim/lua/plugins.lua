@@ -60,6 +60,19 @@ return require("lazy").setup({
   },
 
   {
+    "mfussenegger/nvim-lint",
+  },
+  {
+    "rshkarin/mason-nvim-lint",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-lint",
+    },
+    config = function()
+      require("plugins.lint").setup()
+    end,
+  },
+  {
     "towolf/vim-helm",
     ft = "helm",
     config = function()
