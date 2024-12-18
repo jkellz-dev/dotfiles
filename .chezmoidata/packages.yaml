@@ -16,6 +16,7 @@ packages:
       - cargo-udeps
       - cargo-update
       - cargo-workspaces
+      - coreutils
       - eza
       - fd-find
       - fnm
@@ -118,10 +119,8 @@ packages:
       - mold
       - mpv
       - neofetch
-      - neonctl
       - neovim
       - ninja
-      - node
       - pandoc
       - pipx
       - podman
