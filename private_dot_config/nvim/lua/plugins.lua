@@ -213,6 +213,13 @@ return require("lazy").setup({
     end,
   },
 
+  {
+    "Marskey/telescope-sg",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
   -- Code completion
   {
     "hrsh7th/nvim-cmp",
@@ -422,6 +429,10 @@ return require("lazy").setup({
     end,
   },
 
+  {
+    "rhaiscript/vim-rhai",
+  },
+
   -- Golang
 
   {
@@ -434,7 +445,7 @@ return require("lazy").setup({
     config = function()
       require("go").setup({
         lsp_inlay_hints = {
-          enable = false,
+          enable = true,
         },
       })
     end,

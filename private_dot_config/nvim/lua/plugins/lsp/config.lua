@@ -29,6 +29,8 @@ function M.setup()
     },
   })
 
+  require("lspconfig").ast_grep.setup({})
+
   -- lspconfig.omnisharp.setup({
   -- 	cmd = { "dotnet", "/Users/jonathan/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
   -- 	capabilities = capabilities,

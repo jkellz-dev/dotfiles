@@ -42,6 +42,14 @@ function M.setup()
       --   extension_config_key = value,
       -- }
       -- please take a look at the readme of the extension you want to configure
+      ast_grep = {
+        command = {
+          "sg",
+          "--json=stream",
+        }, -- must have --json=stream
+        grep_open_files = false, -- search in opened files
+        lang = nil, -- string value, specify language for ast-grep `nil` for default
+      },
       undo = {
         use_delta = true,
         use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }

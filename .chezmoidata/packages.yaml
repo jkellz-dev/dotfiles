@@ -5,6 +5,7 @@ packages:
       - mise
       - cargo-outdated
     locked:
+      - ast-grep
       - atuin
       - bat
       - bp
@@ -48,6 +49,7 @@ packages:
       - typstyle
       - yazi-cli
       - yazi-fm
+      - yolk_dots
       - zellij
       - zoxide
 
