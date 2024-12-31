@@ -231,9 +231,17 @@ function M.setup()
     { "<leader>ss", "<cmd>lua require('searchbox').incsearch()<cr>", desc = "Incremental search" },
     { "<leader>sa", "<cmd>lua require('searchbox').match_all()<cr>", desc = "Match all" },
     { "<leader>sr", "<cmd>lua require('searchbox').replace()<cr>", desc = "Replace" },
-    { "<leader>so", "<cmd>lua require('spectre').open()<cr>", desc = "Open search dialogue" },
-    { "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", desc = "Search current word" },
-    { "<leader>sf", "<cmd>lua require('spectre').open_file_search()<cr>", desc = "Search in current file" },
+    { "<leader>so", "<cmd>lua require('grug-far').open({ transient = true })<cr>", desc = "Open search dialogue" },
+    {
+      "<leader>sw",
+      "<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<cr>",
+      desc = "Search current word",
+    },
+    {
+      "<leader>sf",
+      "<cmd>require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<cr>",
+      desc = "Search in current file",
+    },
   })
 
   -- Undo

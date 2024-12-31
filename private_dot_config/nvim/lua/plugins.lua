@@ -742,10 +742,17 @@ return require("lazy").setup({
 
   -- Search & replace
   {
-    "windwp/nvim-spectre",
-    dependencies = { "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
+    "MagicDuck/grug-far.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "BurntSushi/ripgrep",
+    },
     config = function()
-      require("plugins.spectre").setup()
+      require("grug-far").setup({
+        -- options, see Configuration section below
+        -- there are no required options atm
+        -- engine = 'ripgrep' is default, but 'astgrep' can be specified
+      })
     end,
   },
 
