@@ -164,6 +164,7 @@ function M.setup()
   -- Fuzzy Finder
   wk.add({
     { "<leader>f", mode = { "n" }, group = "Fuzzy Finder" },
+    { "<leader>fa", "<cmd>Telescope ast_grep<cr>", desc = "AST Grep" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
     { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
     { "<leader>ff", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
