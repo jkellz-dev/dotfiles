@@ -24,9 +24,11 @@ packages:
       - fd-find
       - fnm
       - fsays
+      - difftastic
       - git-delta
       - harper-ls
       - intelli-shell
+      - jj-cli
       - just
       - kanidm_tools
       - mdbook

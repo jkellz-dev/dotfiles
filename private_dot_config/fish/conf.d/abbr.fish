@@ -10,6 +10,7 @@ abbr -a -- eks eksctl
 abbr -a -- h history
 abbr -a -- kc kubectl
 abbr -a -- kx kubectx
+abbr -a -- gg jj
 abbr -a -- lg lazygit
 abbr -a -- lzd lazydocker
 abbr -a -- mkdir 'mkdir -p'
