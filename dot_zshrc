@@ -74,7 +74,7 @@ plugins=(
     golang
     jfrog
     kubectl
-    node 
+    node
     nomad
     npm
     postgres
@@ -187,7 +187,7 @@ alias tree='tree -C'
 
 # generate files
 # function genfiles() {
-#     counter=1; 
+#     counter=1;
 #     number_of_files=1
 #     if [ -n "$1" ]
 #     then
@@ -225,7 +225,7 @@ alias tree='tree -C'
 
 #     echo "Creating $number_of_files Files"
 
-#     while [[ $counter -le $number_of_files ]]; 
+#     while [[ $counter -le $number_of_files ]];
 #     do echo Creating file random-file.$batch.$counter;
 #         # bc=$RANDOM
 #         # let "bc %= 1024"
