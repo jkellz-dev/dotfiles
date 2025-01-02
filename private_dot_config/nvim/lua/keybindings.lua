@@ -14,6 +14,10 @@ local btm = fterm:new({
   cmd = "btm",
 })
 
+local jjui = fterm:new({
+  cmd = "lazyjj",
+})
+
 local M = {}
 
 function M.setup()
@@ -84,6 +88,17 @@ function M.setup()
     { "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Go to Signature Help" },
     { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", desc = "Go to Type Definition" },
     { "g?", "<cmd>Lspsaga hover_doc<CR>", desc = "Show Docs" },
+  })
+
+  wk.add({
+    { "<leader>j", mode = { "n" }, group = "JJ" },
+    {
+      "<leader>jj",
+      function()
+        jjui:toggle()
+      end,
+      desc = "JJ UI",
+    },
   })
 
   -- Folds
