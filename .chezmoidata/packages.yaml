@@ -24,6 +24,7 @@ packages:
       - fd-find
       - fnm
       - fsays
+      - diffedit3
       - difftastic
       - git-delta
       - harper-ls
@@ -31,6 +32,7 @@ packages:
       - jj-cli
       - just
       - kanidm_tools
+      - lazyjj
       - mdbook
       - mdsf
       - nu

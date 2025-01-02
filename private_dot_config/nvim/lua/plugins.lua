@@ -497,6 +497,14 @@ return require("lazy").setup({
     dependencies = "nvim-lua/plenary.nvim",
   },
 
+  {
+    "julienvincent/hunk.nvim",
+    cmd = { "DiffEditor" },
+    config = function()
+      require("hunk").setup()
+    end,
+  },
+
   -- debugging
 
   {
