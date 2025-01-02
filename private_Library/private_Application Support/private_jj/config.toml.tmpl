@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.os "darwin" }}
+{{- template "jj/config.toml.tmpl" . -}}
+{{- end }}
+

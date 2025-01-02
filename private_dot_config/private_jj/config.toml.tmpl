@@ -1,0 +1,4 @@
+{{- if eq .chezmoi.os "linux" }}
+{{- template "jj/config.toml" . -}}
+{{- end }}
+
