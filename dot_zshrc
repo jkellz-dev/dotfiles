@@ -361,3 +361,5 @@ then
 fi
 
 autoload -U compinit && compinit
+
+source /Users/jonathan/.config/broot/launcher/bash/br

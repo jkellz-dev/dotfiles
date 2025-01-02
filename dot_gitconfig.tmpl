@@ -68,7 +68,7 @@
   {{- end }}
   allowedSignersFile = /home/jonathan/.ssh/allowed_signers
   {{- else if eq .chezmoi.os "windows" }}
-  program = C:\\Users\\jonathan\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe
+  program = "C:\\Users\\jonathan\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe"
   allowedSignersFile = /Users/jonathan/.ssh/allowed_signers
   {{- end }}
 [init]
