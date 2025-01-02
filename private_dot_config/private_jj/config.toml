@@ -1,0 +1,34 @@
+[aliases]
+# `jj l` shows commits on the working-copy commit's (anonymous) bookmark
+# compared to the `main` bookmark
+l = ["log", "-r", "(main..@):: | (main..@)-"]
+
+[merge-tools.vimdiff]
+merge-args = ["-f", "-d", "$output", "-M",
+    "$left", "$base", "$right",
+    "-c", "wincmd J", "-c", "set modifiable",
+    "-c", "set write"]
+program = "vim"
+merge-tool-edits-conflict-markers = true
+
+[signing]
+sign-all = true
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJr6bdGTROIDmIfkQIVWSj1nPf3nv8eEy6/1r1PwGuOm"
+## You can also use a path instead of embedding the key
+# key = "~/.ssh/id_for_signing.pub"
+backends.ssh.program = "/opt/1Password/op-ssh-sign"
+backends.ssh.allowed-signers = "~/.ssh/allowed-signers"
+
+[user]
+name = "Jonathan Kellenberg"
+email = "jonathan@jkellz.dev"
+
+[ui]
+editor = "nvim"
+# diff-editor = "diffedit3"
+default-command = "log"
+
+[ui.diff]
+tool = ["difft", "--color=always", "$left", "$right"]
+
