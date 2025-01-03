@@ -31,6 +31,7 @@ packages:
       - harper-ls
       - intelli-shell
       - jj-cli
+      - jnv
       - just
       - kanidm_tools
       - lazyjj
