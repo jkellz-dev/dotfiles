@@ -35,6 +35,7 @@ packages:
       - kanidm_tools
       - lazyjj
       - mdbook
+      - mdfried
       - mdsf
       - nu
       - ouch
