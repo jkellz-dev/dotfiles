@@ -29,6 +29,7 @@ packages:
       - difftastic
       - git-delta
       - harper-ls
+      - hf
       - intelli-shell
       - jj-cli
       - jnv
