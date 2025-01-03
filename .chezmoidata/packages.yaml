@@ -12,6 +12,7 @@ packages:
       - bottom
       - broot
       - codesnap-cli
+      - cocogitto
       - cargo-generate
       - cargo-get
       - cargo-make
@@ -28,6 +29,7 @@ packages:
       - diffedit3
       - difftastic
       - git-delta
+      - git-cliff
       - harper-ls
       - hf
       - intelli-shell
@@ -35,6 +37,7 @@ packages:
       - jnv
       - just
       - kanidm_tools
+      - koji
       - lazyjj
       - mdbook
       - mdfried
@@ -46,6 +49,7 @@ packages:
       - presenterm
       - ripgrep
       - rustic-rs
+      - rusty-hook
       - sd
       - shellharden
       - sqlx-cli
