@@ -24,6 +24,7 @@
   editor = nvim
   pager = delta
   excludesFile = ~/.gitignore
+  attributesfile = ~/.gitattributes
   {{- if eq .chezmoi.os "windows" }}
   sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
   autocrlf = true
@@ -85,6 +86,9 @@
   default = "tracking"
 [merge]
   tool = nvimdiff
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
 [mergetool]
   prompt = false
   keepBackup = false
