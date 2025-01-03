@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require("conform").setup({
     formatters_by_ft = {
-      ["*"] = { "codespell" },
+      -- ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
       cs = { "csharpier" },
       elm = { "elm_format" },
@@ -28,7 +28,10 @@ function M.setup()
       -- yaml = { "yamlfix" },
     },
     formatters = {
-      codespell = { args = { "-I", os.getenv("HOME") .. "/.config/codespell/.codespellignore" } },
+      codespell = {
+        command = "codespell",
+        args = { "-I", os.getenv("HOME") .. "/.config/codespell/.codespellignore", "$FILENAME" },
+      },
       terraform_fmt = {
         command = "/opt/homebrew/bin/tofu",
       },
