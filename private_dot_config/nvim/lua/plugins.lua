@@ -847,6 +847,21 @@ return require("lazy").setup({
   -- dotnet
   { "Decodetalkers/csharpls-extended-lsp.nvim" },
 
+  -- code screenshots
+  {
+    "mistricky/codesnap.nvim",
+    build = "make build_generator",
+    keys = {
+      { "<leader>cc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
+      { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
+    },
+    opts = {
+      save_path = "~/Desktop",
+      has_breadcrumbs = true,
+      bg_theme = "bamboo",
+    },
+  },
+
   -- chezmoi dotfile management
   {
     "xvzc/chezmoi.nvim",

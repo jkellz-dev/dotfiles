@@ -11,6 +11,7 @@ packages:
       - bp
       - bottom
       - broot
+      - codesnap-cli
       - cargo-generate
       - cargo-get
       - cargo-make
