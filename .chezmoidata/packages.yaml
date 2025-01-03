@@ -42,6 +42,7 @@ packages:
       - mergiraf
       - nu
       - ouch
+      - pamburus/tap/hl
       - presenterm
       - ripgrep
       - rustic-rs
