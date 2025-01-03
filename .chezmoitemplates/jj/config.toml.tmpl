@@ -26,9 +26,9 @@ allowed-signers = "/Users/jonathan/.ssh/allowed_signers"
 {{- else if eq .chezmoi.os "linux" }}
 {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 program = "/mnt/c/Users/jonathan/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
-{{- else }}
+{{-   else }}
 program = "/opt/1Password/op-ssh-sign"
-{{- end }}
+{{-   end }}
 allowedSignersFile = "/home/jonathan/.ssh/allowed_signers"
 {{- else if eq .chezmoi.os "windows" }}
 program = 'C:\Users\jonathan\AppData\Local\1Password\app\8\op-ssh-sign.exe'

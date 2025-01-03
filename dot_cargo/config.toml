@@ -1,0 +1,34 @@
+[alias]
+a = "add"
+b = "build"
+br = "build --release"
+brr = "build --release"
+r = "run"
+rr = "run --release"
+c = "check"
+f = "fmt"
+t = "nextest run"
+pp = "clippy"
+upd = "update"
+updr = "update --dry-run"
+upg = "upgrade"
+trp = "tarpaulin -o Xml -v"
+d = "doc"
+dd = "watch -x doc"
+i = "install"
+o = "outdated -Rv"
+au = "audit"
+m = "msrv"
+w = "watch"
+n = "new"
+lock = "generate-lockfile"
+
+[build]
+target-dir = "~/projects/.cargo/target"
+# rustflags = ["-Z", "threads=8"]
+
+[net]
+git-fetch-with-cli = true
+
+# [unstable]
+# gc = true
