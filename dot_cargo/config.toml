@@ -23,8 +23,8 @@ w = "watch"
 n = "new"
 lock = "generate-lockfile"
 
-[build]
-target-dir = "~/projects/.cargo/target"
+# [build]
+# target-dir = "projects/.cargo/target"
 # rustflags = ["-Z", "threads=8"]
 
 [net]
