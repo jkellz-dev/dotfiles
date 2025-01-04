@@ -2,71 +2,69 @@
 packages:
   cargo:
     standard:
-      - mise
-      - cargo-outdated
+      - mise # manages tools for local development, like direnv++
+      - cargo-outdated # A cargo subcommand for displaying when Rust dependencies are out of date
     locked:
-      - ast-grep
-      - atuin
-      - bat
-      - bp
-      - bottom
-      - broot
-      - codesnap-cli
-      - cocogitto
-      - cargo-generate
-      - cargo-get
-      - cargo-make
-      - cargo-rdme
-      - cargo-semver-checks
-      - cargo-udeps
-      - cargo-update
-      - cargo-workspaces
-      - coreutils
-      - eza
-      - fd-find
-      - fnm
-      - fsays
-      - diffedit3
-      - difftastic
-      - git-delta
-      - git-cliff
-      - harper-ls
-      - hf
-      - intelli-shell
-      - jj-cli
-      - jnv
-      - just
-      - kanidm_tools
-      - koji
-      - lazyjj
-      - mdbook
-      - mdfried
-      - mdsf
-      - mergiraf
-      - nu
-      - ouch
-      - pamburus/tap/hl
-      - presenterm
-      - ripgrep
+      - ast-grep # ast-grep(sg) is a fast and polyglot tool for code structural search, lint, rewriting.
+      - atuin # synced shell history
+      - bat # better `cat`
+      - bp # rust based better paste tool, works like `tee`
+      - bottom # rust based `top` alternative
+      - broot # directory navigator, command launcher
+      - codesnap-cli # code screenshot tool
+      - cocogitto # Conventional Commits toolbox
+      - cargo-generate # generate rust project based on template
+      - cargo-get # Cargo.toml query tool
+      - cargo-make # rust based command runner
+      - cargo-rdme # generates README from docstrings
+      - cargo-semver-checks # Lint your crate API changes for semver violations.
+      - cargo-udeps # cheks for unused dependencies
+      - cargo-update # tool for checking and applying updates to installed executables
+      - cargo-workspaces # A tool that optimizes the workflow around cargo workspaces
+      - coreutils # coreutils rewritten in rust
+      - eza # improved `ls`
+      - fd-find # improved `find`
+      - fnm # Fast Node manager
+      - fsays # ferris says
+      - diffedit3 # JJ diff editor
+      - difftastic # semantic diff tool, uses AST
+      - git-delta # better diff pager
+      - git-cliff # git changelog generator
+      - harper-ls # grammar checker
+      - hf # hidden file manager
+      - intelli-shell # Like IntelliSense, but for shells!
+      - jj-cli # VCS
+      - jnv # jq TUI
+      - just # Command runner
+      - kanidm_tools # cli for interacting with kanidm
+      - koji # Conventional Commit Prompt
+      - lazyjj # JJ TUI
+      - mdbook # rust documentation generator
+      - mdfried # markdown terminal previewer
+      - mdsf # markdown code formatter
+      - mergiraf # git merge conflict resolution tool, uses AST to understand conflicts
+      - nu # NuShell
+      - ouch # de/compression utility
+      - presenterm # present slides in the terminal
+      - ripgrep # grep but way better
       - rustic-rs
-      - rusty-hook
-      - sd
-      - shellharden
-      - sqlx-cli
-      - starship
-      - stylua
-      - tealdeer
-      - television
+      - rusty-hook # hook integration for rust projects
+      - sd # improved sed
+      - shellharden # tool to semi-automate the rewriting of scripts to ShellCheck conformance
+      - sqlx-cli # SQLX's CLI utility for managing databases
+      - starship # prompt
+      - stylua # lua code formatter
+      - tealdeer # tldr
+      - television # rust based FZF alternative
       - tree-sitter-cli
-      - typos-cli
-      - typst-cli
-      - typst-lsp
-      - typstyle
-      - yazi-cli
-      - yazi-fm
-      - yolk_dots
-      - zellij
-      - zoxide
+      - typos-cli # Source code spell checker
+      - typst-cli # document formatter
+      - typstyle # a typst formatter
+      - yazi-cli # cli component of Yazi FM
+      - yazi-fm # TUI file manager
+      - yolk_dots # dotfile manager
+      - zellij # terminal multiplexer, similar to tmux
+      - zoxide # enhanced `cd`
 
   golang:
     - github.com/abenz1267/gomvp@latest
@@ -150,6 +148,7 @@ packages:
       - tree-sitter
       - wget
       - whois
+      - pamburus/tap/hl
     casks:
       - 1password-cli
       - alacritty
