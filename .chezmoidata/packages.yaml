@@ -45,6 +45,7 @@ packages:
       - mergiraf # git merge conflict resolution tool, uses AST to understand conflicts
       - nu # NuShell
       - ouch # de/compression utility
+      - pez # fish shell plugin manager
       - presenterm # present slides in the terminal
       - ripgrep # grep but way better
       - rustic-rs
