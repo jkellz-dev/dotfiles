@@ -1,3 +1,3 @@
 function fish_greeting
-    fsays (fortune -s ~/.config/fortunes)
+    fsays "$(fortune -s ~/.config/fortunes)"
 end
