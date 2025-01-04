@@ -1,0 +1,19 @@
+[[cable_channel]]
+name = "chez"
+source_command = 'fd -t f . $HOME/.local/share/chezmoi'
+preview_command = ':files:'
+
+[[cable_channel]]
+name = "podman"
+source_command = 'podman image list --format "{{.ID}} {{.Repository}}\t{{.Tag}}\t{{.Size}}"'
+preview_command = 'podman image inspect {0} | jq -C'
+
+[[cable_channel]]
+name = "brew"
+source_command = 'brew list --versions'
+preview_command = 'brew info {0}'
+
+[[cable_channel]]
+name = "s3"
+source_command = 'aws s3 ls | cut -d " " -f 3'
+preview_command = 'aws s3 ls s3://{0}'

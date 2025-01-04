@@ -29,12 +29,6 @@ if status is-interactive
     set -Ux MANPAGER "sh -c 'col -bx | bat --theme=default -l man -p'"
     set -Ux MANROFFOPT -c
 
-    # Commands to run in interactive sessions can go here
-    atuin init fish | source
-
-    bind -M insert \v _atuin_search
-    bind -M insert \e\[B _atuin_search
-
     source $HOME/.config/fish/conf.d/intelli-shell.fish
 
     bind -M insert \cs _intelli_search
@@ -44,9 +38,15 @@ if status is-interactive
     starship init fish | source
 
     # fzf config
-    fzf --fish | source
-    fzf_configure_bindings --directory=\cf --git_status=\cg --git_log=\cl
-    set fzf_preview_dir_cmd eza --all --color=always
+    # fzf --fish | source
+    # fzf_configure_bindings --directory=\cf --git_status=\cg --git_log=\cl
+    #
+    # set -gx FZF_CTRL_T_OPTS "
+    # --walker-skip .git,node_modules,target
+    # --preview 'bat -n --color=always {}'
+    # --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+    #
+    # set fzf_preview_dir_cmd eza --all --color=always
 
     zoxide init fish | source
 
@@ -56,6 +56,13 @@ if status is-interactive
 
     tv init fish | source
 
+    bind -M insert \ct tv_smart_autocomplete
+
+    # Commands to run in interactive sessions can go here
+    atuin init fish | source
+
+    bind -M insert \v _atuin_search
+    bind -M insert \e\[B _atuin_search
 else
     mise activate fish --shims | source
 end
