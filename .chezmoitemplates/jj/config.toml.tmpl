@@ -3,6 +3,7 @@
 # `jj l` shows commits on the working-copy commit's (anonymous) bookmark
 # compared to the `main` bookmark
 l = ["log", "-r", "(main..@):: | (main..@)-"]
+ll = ["log", "-r", "..@", "-n", "15"]
 
 [merge-tools.vimdiff]
 merge-args = ["-f", "-d", "$output", "-M",
