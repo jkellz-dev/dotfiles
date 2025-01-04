@@ -7,12 +7,6 @@
 set -Ux DOCKER_HOST unix:///var/folders/1_/1j5672qd5z39qdcysk398r240000gn/T/podman/podman-machine-default-api.sock
 {{ end -}}
 
-
-# fzf config
-fzf_configure_bindings --directory=\ct --git_status=\cg --git_log=\cl
-
-set fzf_preview_dir_cmd eza --all --color=always
-
 # vim keybindings
 set -gx EDITOR nvim
 
@@ -49,11 +43,18 @@ if status is-interactive
     # Enable Starship prompt
     starship init fish | source
 
+    # fzf config
+    fzf --fish | source
+    fzf_configure_bindings --directory=\cf --git_status=\cg --git_log=\cl
+    set fzf_preview_dir_cmd eza --all --color=always
+
     zoxide init fish | source
 
     set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
 
     mise activate fish | source
+
+    tv init fish | source
 
 else
     mise activate fish --shims | source
