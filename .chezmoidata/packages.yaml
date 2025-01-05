@@ -30,6 +30,7 @@ packages:
       - difftastic # semantic diff tool, uses AST
       - git-delta # better diff pager
       - git-cliff # git changelog generator
+      - halp # figures out what the help flag is
       - harper-ls # grammar checker
       - hf # hidden file manager
       - intelli-shell # Like IntelliSense, but for shells!
