@@ -29,7 +29,7 @@ function M.setup()
       "ts_ls",
       "tinymist",
       "yamlls",
-      "vale_ls",
+      -- "vale_ls",
       -- "omnisharp",
       -- "pyright",
     },
