@@ -17,3 +17,19 @@ preview_command = 'brew info {0}'
 name = "s3"
 source_command = 'aws s3 ls | cut -d " " -f 3'
 preview_command = 'aws s3 ls s3://{0}'
+
+# GIT
+[[cable_channel]]
+name = "git-reflog"
+source_command = 'git reflog'
+preview_command = 'git show -p --stat --pretty=fuller --color=always {0}'
+
+[[cable_channel]]
+name = "git-log"
+source_command = "git log --oneline --date=short --pretty=\"format:%h %s %an %cd\" \"$@\""
+preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
+
+[[cable_channel]]
+name = "git-branch"
+source_command = "git --no-pager branch --all --format=\"%(refname:short)\""
+preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
