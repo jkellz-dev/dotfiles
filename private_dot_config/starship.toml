@@ -1,0 +1,37 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[custom.jj]
+command = """
+jj log --revisions 'heads(::@ & bookmarks())' --no-graph --ignore-working-copy --color always --limit 1 --template '
+  separate(" ",
+    "🥋",
+    change_id.shortest(4),
+    bookmarks,
+    "|",
+    concat(
+      if(conflict, "💥 conflict"),
+      if(divergent, "🚧 divergent"),
+      if(hidden, "👻 hidden"),
+      if(immutable, "🔒 immutable"),
+      if(!(conflict || divergent || hidden || immutable), "✅", "")
+    ) ++ raw_escape_sequence("\\x1b[0m"),
+  )
+'
+"""
+detect_folders = ['.jj']
+# when = "git-change"
+# style = "fg:red"
+# prefix = ""
+# suffix = " "
