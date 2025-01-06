@@ -8,7 +8,6 @@ abbr -a -- do doctl
 abbr -a -- docker podman
 abbr -a -- eks eksctl
 abbr -a -- h history
-abbr -a -- j jj
 abbr -a -- kc kubectl
 abbr -a -- kx kubectx
 abbr -a -- lg lazygit
@@ -27,3 +26,15 @@ abbr -a -- vim nvim
 abbr -a -- which 'type -a'
 abbr -a --position anywhere --function last_history_item -- !!
 abbr -a --position anywhere --set-cursor='%' -- L '% | less'
+
+# Jujutsu
+abbr -a j jj
+abbr -a jl 'jj log'
+abbr -a js 'jj status'
+abbr -a jf 'jj diff'
+abbr -a jd --set-cursor 'jj desc -m "%"'
+abbr -a jn 'jj new'
+abbr -a jm --set-cursor 'jj bookmark move %'
+abbr -a jmm --set-cursor 'jj bookmark move main --to %'
+abbr -a jgp 'jj git push'
+abbr -a jgf 'jj git fetch'
