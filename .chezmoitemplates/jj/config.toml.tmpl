@@ -48,4 +48,10 @@ default-command = "log"
 [ui.diff]
 tool = ["difft", "--color=always", "$left", "$right"]
 
-
+# override user.email if the repository is located under ~/projects/velocibyte
+[[--scope]]
+--when.repositories = ["~/projects/velocibyte"]
+[--scope.user]
+email = "jonathan@velocibyte.io"
+[--scope.signing]
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBr56rHIY1wRIHX4OyMxj878xSAY+uDLZrb/JfLQTpMR"
