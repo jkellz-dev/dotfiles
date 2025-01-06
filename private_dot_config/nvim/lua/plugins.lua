@@ -281,8 +281,11 @@ return require("lazy").setup({
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvimtools/none-ls-extras.nvim",
+    },
     config = function()
       require("plugins.lsp.null_ls").setup()
     end,
@@ -422,7 +425,7 @@ return require("lazy").setup({
     event = { "BufRead Cargo.toml" },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
     },
     config = function()
       require("plugins.rust.crates").setup()
