@@ -8,9 +8,9 @@ abbr -a -- do doctl
 abbr -a -- docker podman
 abbr -a -- eks eksctl
 abbr -a -- h history
+abbr -a -- j jj
 abbr -a -- kc kubectl
 abbr -a -- kx kubectx
-abbr -a -- ff jj
 abbr -a -- lg lazygit
 abbr -a -- lzd lazydocker
 abbr -a -- mkdir 'mkdir -p'
