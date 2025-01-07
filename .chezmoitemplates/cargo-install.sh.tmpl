@@ -1,17 +1,9 @@
-# vim: filetype=sh.chezmoitmpl
+# vim: filetype=sh
 
 # Install Cargo Packages
 echo "CARGO: {{ list .packages.cargo.standard | join " " | trimAll "[]" }}"
 
 gh auth login
-
-git_repos={{ list .packages.cargo.git | join " " | trimAll "[]" }}
-
-for repo in "$git_repos";
-do
-  echo "INSTALLING: $repo"
-  cargo install --git "$repo"
-done
 
 cargo binstall --github-token "$(gh auth token)" {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
 
