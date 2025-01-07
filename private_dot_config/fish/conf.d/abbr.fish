@@ -29,6 +29,7 @@ abbr -a --position anywhere --set-cursor='%' -- L '% | less'
 
 # Jujutsu
 abbr -a j jj
+abbr -a je --set-cursor 'jj edit %'
 abbr -a jl 'jj log'
 abbr -a js 'jj status'
 abbr -a jf 'jj diff'
