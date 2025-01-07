@@ -1,6 +1,8 @@
 ---
 packages:
   cargo:
+    git:
+      - https://github.com/sunshowers/spr.git # spr fork with jj  support
     standard:
       - mise # manages tools for local development, like direnv++
       - cargo-outdated # A cargo subcommand for displaying when Rust dependencies are out of date
