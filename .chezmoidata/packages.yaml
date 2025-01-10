@@ -2,6 +2,7 @@
 packages:
   cargo:
     git:
+      - https://github.com/jkellz-dev/koji.git # Conventional Commit Prompt
       - https://github.com/sunshowers/spr.git # spr fork with jj  support
     standard:
       - mise # manages tools for local development, like direnv++
@@ -40,7 +41,7 @@ packages:
       - jnv # jq TUI
       - just # Command runner
       - kanidm_tools # cli for interacting with kanidm
-      - koji # Conventional Commit Prompt
+      # - koji # Conventional Commit Prompt
       - lazyjj # JJ TUI
       - mdbook # rust documentation generator
       - mdfried # markdown terminal previewer
