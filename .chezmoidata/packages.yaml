@@ -46,6 +46,7 @@ packages:
       - mdfried # markdown terminal previewer
       - mdsf # markdown code formatter
       - mergiraf # git merge conflict resolution tool, uses AST to understand conflicts
+      - nomino # batch file rename utility
       - nu # NuShell
       - ouch # de/compression utility
       - pez # fish shell plugin manager
@@ -56,6 +57,7 @@ packages:
       - rusty-hook # hook integration for rust projects
       - sd # improved sed
       - shellharden # tool to semi-automate the rewriting of scripts to ShellCheck conformance
+      - spiko # lightweight load testing tool built
       - sqlx-cli # SQLX's CLI utility for managing databases
       - starship # prompt
       - stylua # lua code formatter
