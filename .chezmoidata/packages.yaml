@@ -53,6 +53,7 @@ packages:
       - pez # fish shell plugin manager
       - pixi # package management and workflow tool
       - presenterm # present slides in the terminal
+      - revq # github PR manager
       - ripgrep # grep but way better
       - rustic-rs
       - rusty-hook # hook integration for rust projects
