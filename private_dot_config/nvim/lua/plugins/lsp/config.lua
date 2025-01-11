@@ -73,7 +73,22 @@ function M.setup()
   lspconfig.marksman.setup({ capabilities = capabilities, on_attach = on_attach })
   -- lspconfig.pyright.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.ruff.setup({ capabilities = capabilities, on_attach = on_attach })
-  lspconfig.sqls.setup({ capabilities = capabilities, on_attach = on_attach })
+  lspconfig.sqls.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      require("sqls").on_attach(client, bufnr)
+    end,
+    settings = {
+      sqls = {
+        connections = {
+          {
+            driver = "postgresql",
+            dataSourceName = "host=127.0.0.1 port=5432 user=admin password=password dbname=postgres sslmode=disable",
+          },
+        },
+      },
+    },
+  })
   lspconfig.terraformls.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.tflint.setup({ capabilities = capabilities, on_attach = on_attach })
   lspconfig.ts_ls.setup({ capabilities = capabilities, on_attach = on_attach })

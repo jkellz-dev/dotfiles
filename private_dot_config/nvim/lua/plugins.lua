@@ -291,6 +291,10 @@ return require("lazy").setup({
     end,
   },
 
+  {
+    "nanotee/sqls.nvim",
+  },
+
   -- Formatters
   {
     "stevearc/conform.nvim",
