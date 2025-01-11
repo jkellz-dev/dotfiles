@@ -112,7 +112,7 @@ packages:
     - golang.org/x/vuln/cmd/govulncheck@latest
     - gotest.tools/gotestsum@latest
     - mvdan.cc/gofumpt@latest
-    - mvdan.cc/sh/v3/cmd/shfmt@latest@latest
+    - mvdan.cc/sh/v3/cmd/shfmt@latest
   pipx:
   darwin:
     brews:
