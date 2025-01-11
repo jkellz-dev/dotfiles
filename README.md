@@ -17,3 +17,5 @@ All templates use the [Golang Template Syntax](https://pkg.go.dev/text/template)
 ## Manual Steps
 
 - [Netcoredbg](https://github.com/Samsung/netcoredbg)
+
+test
