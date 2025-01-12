@@ -18,9 +18,11 @@ packages:
       - cocogitto # Conventional Commits toolbox
       - cargo-generate # generate rust project based on template
       - cargo-get # Cargo.toml query tool
+      - cargo-override # Cargo tool for adding overrides to the the Cargo.toml
       - cargo-make # rust based command runner
       - cargo-rdme # generates README from docstrings
       - cargo-semver-checks # Lint your crate API changes for semver violations.
+      - cargo-tarpaulin # rust code coverage
       - cargo-udeps # cheks for unused dependencies
       - cargo-update # tool for checking and applying updates to installed executables
       - cargo-workspaces # A tool that optimizes the workflow around cargo workspaces
@@ -36,6 +38,7 @@ packages:
       - halp # figures out what the help flag is
       - harper-ls # grammar checker
       - hf # hidden file manager
+      - hyperfine # Benchmark tool
       - intelli-shell # Like IntelliSense, but for shells!
       - jj-cli # VCS
       - jnv # jq TUI
@@ -66,9 +69,11 @@ packages:
       - tealdeer # tldr
       - television # rust based FZF alternative
       - tree-sitter-cli
+      - trunk # WASM application bundler
       - typos-cli # Source code spell checker
       - typst-cli # document formatter
       - typstyle # a typst formatter
+      - wasm-pack # WASM builder
       - yazi-cli # cli component of Yazi FM
       - yazi-fm # TUI file manager
       - yolk_dots # dotfile manager

@@ -29,7 +29,7 @@ abbr -a --position anywhere --set-cursor='%' -- L '% | less'
 
 # Jujutsu
 abbr -a j jj
-abbr -a jbl 'jj bookmark list'
+abbr -a jbl 'jj bookmark list -a'
 abbr -a jbm --set-cursor 'jj bookmark move % --to @-'
 abbr -a jbmm 'jj bookmark move main --to @-'
 abbr -a jc 'jj commit'
@@ -41,6 +41,7 @@ abbr -a jgf 'jj git fetch'
 abbr -a jgp 'jj git push'
 abbr -a jk 'jj desc -m "$(koji --stdout)"'
 abbr -a jl 'jj log'
+abbr -a jla "jj log 'all()'"
 abbr -a jn --set-cursor 'jj new %'
 abbr -a jr --set-cursor 'jj rebase -s % -d @-'
 abbr -a js 'jj status'
