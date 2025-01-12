@@ -10,9 +10,9 @@ git_repos={{ list .packages.cargo.git | join " " | trimAll "[]" }}
 for repo in "$git_repos";
 do
   echo "INSTALLING: $repo"
-  cargo install --git "$repo"
+  cargo binstall --no-confirm --git "$repo"
 done
 
-cargo binstall --github-token "$(gh auth token)" {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
+cargo binstall --no-confirm --github-token "$(gh auth token)" {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
 
-cargo binstall --github-token "$(gh auth token)" --locked {{ list .packages.cargo.locked | join " " | trimAll "[]" }}
+cargo binstall --no-confirm --github-token "$(gh auth token)" --locked {{ list .packages.cargo.locked | join " " | trimAll "[]" }}

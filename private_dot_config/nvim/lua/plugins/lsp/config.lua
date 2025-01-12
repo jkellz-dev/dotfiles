@@ -83,7 +83,7 @@ function M.setup()
         connections = {
           {
             driver = "postgresql",
-            dataSourceName = "host=127.0.0.1 port=5432 user=admin password=password dbname=postgres sslmode=disable",
+            dataSourceName = "host=127.0.0.1 port=5432 user=admin password=password dbname=manifest sslmode=disable",
           },
         },
       },
