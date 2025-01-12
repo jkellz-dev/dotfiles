@@ -36,6 +36,7 @@ abbr -a jgf 'jj git fetch'
 abbr -a jgp 'jj git push'
 abbr -a jk 'jj desc -m "$(koji --stdout)"'
 abbr -a jl 'jj log'
+abbr -a jla "jj log 'all()'"
 abbr -a jm --set-cursor 'jj bookmark move %'
 abbr -a jmm --set-cursor 'jj bookmark move main --to %'
 abbr -a jn 'jj new'
