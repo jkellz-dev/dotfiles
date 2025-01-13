@@ -1,18 +1,22 @@
 # vim: filetype=sh.chezmoitmpl
 
 # Install Cargo Packages
-echo "CARGO: {{ list .packages.cargo.standard | join " " | trimAll "[]" }}"
 
 gh auth login
 
-git_repos={{ list .packages.cargo.git | join " " | trimAll "[]" }}
+git_repos={{ list .packages.cargo.repos | join " " | trimAll "[]" }}
+
+echo "REPOS: $git_repos"
 
 for repo in "$git_repos";
 do
   echo "INSTALLING: $repo"
-  cargo binstall --no-confirm --git "$repo"
+  cargo install --git "$repo"
 done
+
+echo "CARGO: {{ list .packages.cargo.standard | join " " | trimAll "[]" }}"
 
 cargo binstall --no-confirm --github-token "$(gh auth token)" {{ list .packages.cargo.standard | join " " | trimAll "[]" }}
 
+echo "CARGO LOCKED: {{ list .packages.cargo.locked | join " " | trimAll "[]" }}"
 cargo binstall --no-confirm --github-token "$(gh auth token)" --locked {{ list .packages.cargo.locked | join " " | trimAll "[]" }}

@@ -1,9 +1,9 @@
 ---
 packages:
   cargo:
-    git:
-      - https://github.com/jkellz-dev/koji.git # Conventional Commit Prompt
-      - https://github.com/sunshowers/spr.git # spr fork with jj  support
+    repos:
+      - "https://github.com/jkellz-dev/koji.git"
+      - "https://github.com/sunshowers/spr.git"
     standard:
       - mise # manages tools for local development, like direnv++
       - cargo-outdated # A cargo subcommand for displaying when Rust dependencies are out of date
@@ -73,6 +73,7 @@ packages:
       - typos-cli # Source code spell checker
       - typst-cli # document formatter
       - typstyle # a typst formatter
+      - wasm-bindgen-cli # WASM JS generator
       - wasm-pack # WASM builder
       - yazi-cli # cli component of Yazi FM
       - yazi-fm # TUI file manager
