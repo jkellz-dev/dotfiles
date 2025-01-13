@@ -2,6 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
+
 local wk = require("which-key")
 
 wk.add({
@@ -11,30 +16,6 @@ wk.add({
 })
 
 local fterm = require("FTerm")
-
----@diagnostic disable-next-line: missing-fields
-local gitui = fterm:new({
-  cmd = "lazygit",
-  ---@diagnostic disable-next-line: missing-fields
-  dimensions = {
-    height = 0.9,
-    width = 0.9,
-  },
-})
-
--- git
-wk.add({
-  { "<leader>g", mode = { "n" }, group = "git" },
-  {
-    "<leader>gg",
-    function()
-      gitui:toggle()
-    end,
-    desc = "Git UI",
-  },
-  { "<leader>gd", ":DiffviewOpen<cr>", desc = "Open DiffView" },
-  { "<leader>gc", ":DiffviewClose<cr>", desc = "Close DiffView" },
-})
 
 ---@diagnostic disable-next-line: missing-fields
 local btm = fterm:new({
