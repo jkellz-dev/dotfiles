@@ -53,6 +53,7 @@ packages:
       - nomino # batch file rename utility
       - nu # NuShell
       - ouch # de/compression utility
+      - parallel-disk-usage # Disk Usage that renders a graphical chart
       - pez # fish shell plugin manager
       - pixi # package management and workflow tool
       - presenterm # present slides in the terminal
