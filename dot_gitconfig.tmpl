@@ -22,7 +22,7 @@
   gpgsign = true
 [core]
   editor = nvim
-  pager = delta
+  ; pager = delta
   excludesFile = ~/.gitignore
   attributesfile = ~/.gitattributes
   {{- if eq .chezmoi.os "windows" }}
@@ -44,6 +44,7 @@
   features = tokyonight_night
 [diff]
   tool = difftastic
+  external = difft
   colorMoved = default
 [difftool]
   prompt = false

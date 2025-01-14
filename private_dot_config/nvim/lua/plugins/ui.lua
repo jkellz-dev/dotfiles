@@ -8,7 +8,7 @@ return {
   -- {
   --   "LazyVim/LazyVim",
   --   opts = {
-  --     colorscheme = "onedark",
+  --     colorscheme = "onedark_vivid",
   --   },
   -- },
 
@@ -40,11 +40,22 @@ return {
   {
     "ibhagwan/fzf-lua",
     keys = {
-      { "<leader><leader>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+      { "<leader><leader>", LazyVim.pick("files", { root = false }), desc = "Find Files" },
       { "<leader>fR", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
       { "<leader>fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       { "<leader>sG", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
       { "<leader>sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
+    },
+  },
+
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "super-tab",
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
+      },
     },
   },
 }

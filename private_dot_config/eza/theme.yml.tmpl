@@ -1,0 +1,4 @@
+# vim: filetype=yaml.chezmoitmpl
+{{- if eq .chezmoi.os "linux" }}
+{{- template "eza_theme.yml" . -}}
+{{- end }}

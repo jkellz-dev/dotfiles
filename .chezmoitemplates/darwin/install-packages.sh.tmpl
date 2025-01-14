@@ -13,9 +13,11 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 
-
 {{ template "cargo-install.sh.tmpl" . }}
 
 {{ template "golang-install.sh.tmpl" . }}
 
-{{ template "pipx-install.sh.tmpl" . }}
+# update mise tools
+
+mise prune
+mise upgrade

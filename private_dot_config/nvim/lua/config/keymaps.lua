@@ -13,6 +13,16 @@ wk.add({
   { ",cc", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
   { ",,", "m`A,<Esc>``j", desc = "Append comma and move down", group = "Append" },
   { ";;", "m`A;<Esc>``j", desc = "Append semicolon and move down", group = "Append" },
+  {
+    "<leader>se",
+    function()
+      require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+    end,
+    mode = { "n" },
+    desc = "Replace (current file)",
+  },
+
+  { "<leader>N", "<cmd>Neotree toggle<CR>", desc = "Neotree Toggle" },
 })
 
 local fterm = require("FTerm")

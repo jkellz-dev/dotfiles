@@ -2,8 +2,9 @@
 packages:
   cargo:
     repos:
-      - "https://github.com/jkellz-dev/koji.git"
-      - "https://github.com/sunshowers/spr.git"
+      - https://github.com/jkellz-dev/koji.git # Conventional Commits tool
+      - https://github.com/sunshowers/spr.git # Super Pull Requests (stacked PRs)
+      - https://github.com/trinhminhtriet/spiko #lightweight load testing tool built
     standard:
       - mise # manages tools for local development, like direnv++
       - cargo-outdated # A cargo subcommand for displaying when Rust dependencies are out of date
@@ -16,6 +17,7 @@ packages:
       - broot # directory navigator, command launcher
       - codesnap-cli # code screenshot tool
       - cocogitto # Conventional Commits toolbox
+      - cargo-binstall # Install Rust Binaries
       - cargo-generate # generate rust project based on template
       - cargo-get # Cargo.toml query tool
       - cargo-override # Cargo tool for adding overrides to the the Cargo.toml
@@ -63,7 +65,6 @@ packages:
       - rusty-hook # hook integration for rust projects
       - sd # improved sed
       - shellharden # tool to semi-automate the rewriting of scripts to ShellCheck conformance
-      - spiko # lightweight load testing tool built
       - sqlx-cli # SQLX's CLI utility for managing databases
       - starship # prompt
       - stylua # lua code formatter
@@ -121,7 +122,6 @@ packages:
     - gotest.tools/gotestsum@latest
     - mvdan.cc/gofumpt@latest
     - mvdan.cc/sh/v3/cmd/shfmt@latest
-  pipx:
   darwin:
     brews:
       - curl

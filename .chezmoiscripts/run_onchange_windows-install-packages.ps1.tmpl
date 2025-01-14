@@ -9,7 +9,7 @@ winget install --ID {{ . | quote }}
 
 {{- template "golang-install.sh.tmpl" . }}
 
-{{- template "pipx-install.sh.tmpl" . }}
+{{- template "mise-install.sh.tmpl" . }}
 
 {{ end -}}
 

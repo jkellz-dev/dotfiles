@@ -8,5 +8,4 @@ sudo zypper -n install {{ list .packages.linux.apt | join " " | trimAll "[]" }}
 
 {{ template "golang-install.sh.tmpl" . }}
 
-{{ template "pipx-install.sh.tmpl" . }}
-
+{{ template "mise-install.sh.tmpl" . }}
