@@ -1,4 +1,16 @@
 return {
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "night" },
+  },
+
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "onedark",
+  --   },
+  -- },
 
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 

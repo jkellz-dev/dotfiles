@@ -41,6 +41,7 @@
   light = false
   line-numbers = true
   side-by-side = true
+  features = tokyonight_night
 [diff]
   tool = difftastic
   colorMoved = default
@@ -101,6 +102,9 @@
   cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [tag]
   gpgsign = true
+
+[include]
+path = .config/delta/themes.gitconfig
 
 
 [includeIf "gitdir:~/projects/velocibyte/"]
